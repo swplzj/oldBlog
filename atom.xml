@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Octopress Blog]]></title>
+  <link href="http://swplzj.github.io/atom.xml" rel="self"/>
+  <link href="http://swplzj.github.io/"/>
+  <updated>2014-09-17T19:04:17+08:00</updated>
+  <id>http://swplzj.github.io/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fourth_blog]]></title>
+    <link href="http://swplzj.github.io/blog/2014/09/17/fourth-blog/"/>
+    <updated>2014-09-17T19:03:45+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/17/fourth-blog</id>
+    <content type="html"><![CDATA[<p>这是第四篇博客</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Third_blog]]></title>
+    <link href="http://swplzj.github.io/blog/2014/09/17/third-blog/"/>
+    <updated>2014-09-17T18:54:32+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/17/third-blog</id>
+    <content type="html"><![CDATA[<p>第三篇博客</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Second]]></title>
+    <link href="http://swplzj.github.io/blog/2014/09/17/second/"/>
+    <updated>2014-09-17T17:29:15+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/17/second</id>
+    <content type="html"><![CDATA[<p>这是我发布的第二遍博客</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FirstBlog]]></title>
+    <link href="http://swplzj.github.io/blog/2014/09/17/firstblog/"/>
+    <updated>2014-09-17T14:26:01+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/17/firstblog</id>
+    <content type="html"><![CDATA[<p>这是我的第一篇博客。</p>
+]]></content>
+  </entry>
+  
+</feed>
