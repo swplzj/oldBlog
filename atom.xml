@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2014-09-18T11:52:10+08:00</updated>
+  <updated>2014-09-18T13:21:05+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[李振杰]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[update]]></title>
+    <link href="http://swplzj.github.io/blog/2014/09/18/update/"/>
+    <updated>2014-09-18T13:20:26+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/18/update</id>
+    <content type="html"><![CDATA[<p>更新主题</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[chage theme]]></title>
