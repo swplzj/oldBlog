@@ -1,95 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>polang - 李振杰</title>
-	<meta name="author" content="LeeZhenjie">
+  <title><![CDATA[Category: Tips | 李振杰]]></title>
+  <link href="http://swplzj.github.io/blog/categories/tips/atom.xml" rel="self"/>
+  <link href="http://swplzj.github.io/"/>
+  <updated>2014-09-18T21:32:00+08:00</updated>
+  <id>http://swplzj.github.io/</id>
+  <author>
+    <name><![CDATA[LeeZhenjie]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
-	
-	<meta name="description" content="Polang 定制Octopress
-JUL 10TH, 2013 | COMMENTS
-在 github pages 上搭建好 octopress 博客之后，博客的基本功能就能使用了。 如果想让自己的博客充满个性，还可以继续探索定制方法。这里对自己的定制过程做一些总结。 提前声明： 不会 &hellip;">
-	
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link href="/atom.xml" rel="alternate" title="李振杰" type="application/atom+xml">
-	
-	<link rel="canonical" href="http://swplzj.github.io/blog/2014/09/18/polang/">
-	<link href="/favicon.png" rel="shortcut icon">
-	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-
-</head>
-
-
-<body>
-	<div class="container">
-		<div class="left-col">
-			<div class="intrude-less">
-			<header id="header" class="inner"><div class="profilepic">	
-	<script src="/javascripts/md5.js"></script>
-	<script type="text/javascript">
-		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
-	</script>
-</div>
-<h1><a href="/">李振杰</a></h1>
-<p class="subtitle">An iOS developer‘s blog about programming and growing.</p>
-<nav id="main-nav"><ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-</nav>
-<nav id="sub-nav">
-	<div class="social">
-		
-		<a class="weibo" href="http://www.weibo.com/1813008885" title="Weibo">Weibo</a>
-		
-		
-		
-		
-		
-		<a class="github" href="https://github.com/swplzj" title="GitHub">GitHub</a>
-		
-		
-		
-		
-		
-		
-		
-		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
-		
-	</div>
-</nav>
-<hgroup>
-  <h1><a href="/">李振杰</a></h1>
   
-    <h2>An iOS developer‘s blog about programming and growing.</h2>
-  
-</hgroup>
-
-</header>				
-			</div>
-		</div>	
-		<div class="mid-col">
-			
-				
-			
-			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name">Polang</h1>
-	<div class="entry-content" itemprop="articleBody"><p>定制Octopress
+  <entry>
+    <title type="html"><![CDATA[Polang]]></title>
+    <link href="http://swplzj.github.io/blog/2014/09/19/polang/"/>
+    <updated>2014-09-19T00:44:17+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/19/polang</id>
+    <content type="html"><![CDATA[<p>定制Octopress
 JUL 10TH, 2013 | COMMENTS
 在 github pages 上搭建好 octopress 博客之后，博客的基本功能就能使用了。</p>
 
@@ -222,49 +151,7 @@ var jiathis_config = {data_track_clickback:'true'};
 2.4 友言验证</p>
 
 <p>另如果需要在友言的后台处理评论，甚至做一些定制化处理，需要通过友言的验证。详情参见友言的管理员后台界面。大致过程是在自己的 master 分支的根目录下放置一个友言提供的验证文件，让友言网站来检测。</p>
-</div>
-
-</article>
-
-	<div class="share">
-	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
-	
-	<a class="addthis_button_sinaweibo"></a>
-	
-	
-	
-	
-	
-	<a class="addthis_button_compact"></a>
-	<a class="addthis_counter addthis_bubble_style"></a>
-	</div>
-  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
-</div>
-
-
-</div>
-			</div>
-			<footer id="footer" class="inner"><p>
-  Copyright &copy; 2014 - LeeZhenjie -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
-			<script src="/javascripts/slash.js"></script>
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
-
-
-
-
-
-
-
-		</div>
-	</div>
-</body>
-</html>
+]]></content>
+  </entry>
+  
+</feed>

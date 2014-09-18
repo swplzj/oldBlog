@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2014-09-18T17:03:35+08:00</updated>
+  <updated>2014-09-18T21:32:00+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[polang]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/18/polang/"/>
-    <updated>2014-09-18T16:44:17+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/18/polang</id>
+    <link href="http://swplzj.github.io/blog/2014/09/19/polang/"/>
+    <updated>2014-09-19T00:44:17+08:00</updated>
+    <id>http://swplzj.github.io/blog/2014/09/19/polang</id>
     <content type="html"><![CDATA[<p>定制Octopress
 JUL 10TH, 2013 | COMMENTS
 在 github pages 上搭建好 octopress 博客之后，博客的基本功能就能使用了。</p>
