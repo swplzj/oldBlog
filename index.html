@@ -28,9 +28,11 @@ JUL 10TH, 2013 | COMMENTS
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> &#8211;>
 	<script src="//libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'> &#8211;>
+
+	
 </head>
 
 
@@ -252,447 +254,6 @@ var jiathis_config = {data_track_clickback:'true'};
 2.4 友言验证</p>
 
 <p>另如果需要在友言的后台处理评论，甚至做一些定制化处理，需要通过友言的验证。详情参见友言的管理员后台界面。大致过程是在自己的 master 分支的根目录下放置一个友言提供的验证文件，让友言网站来检测。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-18T16:04:34+08:00" data-updated="true" itemprop="datePublished"></time></div>
-		<div class="tags">
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/09/18/long-blog/" itemprop="url">Long Blog</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p><a href="https://github.com/swplzj/swplzj.github.com.git">https://github.com/swplzj/swplzj.github.com.git</a>
-git@github.com:swplzj/swplzj.github.com.git
-、、、</p>
-
-<p><a href="http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/">http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/</a></p>
-
-<p><a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
-
-<p><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html</a>
-<a href="http://octopress.org/docs/blogging/">http://octopress.org/docs/blogging/</a></p>
-
-<p><a href="http://blog.csdn.net/xunyn/article/details/16889963">http://blog.csdn.net/xunyn/article/details/16889963</a></p>
-
-<p><a href="http://linglong117.blog.163.com/blog/static/27714547201332895056387/">http://linglong117.blog.163.com/blog/static/27714547201332895056387/</a></p>
-
-<p>//好博文
-<a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">http://blog.segmentfault.com/yaashion_xiang/1190000000364677</a></p>
-
-<p>An iOS developer, blog about programming and my growing.</p>
-
-<script async src="https://static.medium.com/embed.js"></script>
-
-
-<p><a class="m-profile" href="https://medium.com/@Medium">Medium</a></p>
-
-<p>主题
-白色
-<a href="http://lucaslew.com">http://lucaslew.com</a>
-//蓝色调
-<a href="http://bootstrap-theme.kutilovi.cz/blog/archives/">http://bootstrap-theme.kutilovi.cz/blog/archives/</a>
-//极简
-<a href="http://macjasp.github.io">http://macjasp.github.io</a>
-点微 / 动态展示
-<a href="http://demo.dotkrnl.com">http://demo.dotkrnl.com</a>
-瀑布流
-<a href="http://blog.hyfather.com">http://blog.hyfather.com</a>
-//绿色
-<a href="http://sofreshandsogreen.herokuapp.com">http://sofreshandsogreen.herokuapp.com</a></p>
-
-<h1>选中的主题</h1>
-
-<p>octopress-bootstrap Preview Based on Twitter Bootstrap</p>
-
-<p><a href="http://www.tuicool.com/articles/6rMjye">http://www.tuicool.com/articles/6rMjye</a></p>
-
-<p>官方文档
-<a href="https://github.com/imathis/octopress/wiki">https://github.com/imathis/octopress/wiki</a></p>
-
-<h4>创建一篇博文</h4>
-
-<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
-
-<h4>生成预览</h4>
-
-<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
-
-<h4>在线发布</h4>
-
-<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
-
-<h4>向 github 提交源文件更新</h4>
-
-<p>git add -A
-git commit -m :&ldquo;提交内容&rdquo;
-git push</p>
-
-<p>rake setup_github_pages
-生成静态站点：rake generate
-rake deploy</p>
-
-<h4>提交源文件，即source分支</h4>
-
-<p>git add .
-git commit -m &lsquo;your message&rsquo;
-git push origin source</p>
-
-<h4>克隆主题</h4>
-
-<p>$ cd Octopress<br/>
-$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
-$ rake install[&lsquo;foxslide&rsquo;]<br/>
-$ rake generate<br/>
-$ rake deploy</p>
-
-<p>$ cd octopress
-$ git submodule add GIT_URL .themes/THEME_NAME
-$ rake install[&lsquo;THEME_NAME&rsquo;]
-$ rake generate</p>
-
-<h4>拉取master分支</h4>
-
-<p>进入_deploy目录，运行如下命令
-git pull origin master</p>
-
-<h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
-
-<p>cd Octopress/<br/>
-git pull origin source<br/>
-cd _deploy</p>
-
-<p>git commit &ndash;amend
-git rebase.</p>
-
-<p><a href="https://github.com/swplzj/swplzj.github.com.git">https://github.com/swplzj/swplzj.github.com.git</a>
-git@github.com:swplzj/swplzj.github.com.git
-、、、</p>
-
-<p><a href="http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/">http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/</a></p>
-
-<p><a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
-
-<p><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html</a>
-<a href="http://octopress.org/docs/blogging/">http://octopress.org/docs/blogging/</a></p>
-
-<p><a href="http://blog.csdn.net/xunyn/article/details/16889963">http://blog.csdn.net/xunyn/article/details/16889963</a></p>
-
-<p><a href="http://linglong117.blog.163.com/blog/static/27714547201332895056387/">http://linglong117.blog.163.com/blog/static/27714547201332895056387/</a></p>
-
-<p>//好博文
-<a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">http://blog.segmentfault.com/yaashion_xiang/1190000000364677</a></p>
-
-<p>An iOS developer, blog about programming and my growing.</p>
-
-<script async src="https://static.medium.com/embed.js"></script>
-
-
-<p><a class="m-profile" href="https://medium.com/@Medium">Medium</a></p>
-
-<p>主题
-白色
-<a href="http://lucaslew.com">http://lucaslew.com</a>
-//蓝色调
-<a href="http://bootstrap-theme.kutilovi.cz/blog/archives/">http://bootstrap-theme.kutilovi.cz/blog/archives/</a>
-//极简
-<a href="http://macjasp.github.io">http://macjasp.github.io</a>
-点微 / 动态展示
-<a href="http://demo.dotkrnl.com">http://demo.dotkrnl.com</a>
-瀑布流
-<a href="http://blog.hyfather.com">http://blog.hyfather.com</a>
-//绿色
-<a href="http://sofreshandsogreen.herokuapp.com">http://sofreshandsogreen.herokuapp.com</a></p>
-
-<h1>选中的主题</h1>
-
-<p>octopress-bootstrap Preview Based on Twitter Bootstrap</p>
-
-<p><a href="http://www.tuicool.com/articles/6rMjye">http://www.tuicool.com/articles/6rMjye</a></p>
-
-<p>官方文档
-<a href="https://github.com/imathis/octopress/wiki">https://github.com/imathis/octopress/wiki</a></p>
-
-<h4>创建一篇博文</h4>
-
-<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
-
-<h4>生成预览</h4>
-
-<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
-
-<h4>在线发布</h4>
-
-<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
-
-<h4>向 github 提交源文件更新</h4>
-
-<p>git add -A
-git commit -m :&ldquo;提交内容&rdquo;
-git push</p>
-
-<p>rake setup_github_pages
-生成静态站点：rake generate
-rake deploy</p>
-
-<h4>提交源文件，即source分支</h4>
-
-<p>git add .
-git commit -m &lsquo;your message&rsquo;
-git push origin source</p>
-
-<h4>克隆主题</h4>
-
-<p>$ cd Octopress<br/>
-$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
-$ rake install[&lsquo;foxslide&rsquo;]<br/>
-$ rake generate<br/>
-$ rake deploy</p>
-
-<p>$ cd octopress
-$ git submodule add GIT_URL .themes/THEME_NAME
-$ rake install[&lsquo;THEME_NAME&rsquo;]
-$ rake generate</p>
-
-<h4>拉取master分支</h4>
-
-<p>进入_deploy目录，运行如下命令
-git pull origin master</p>
-
-<h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
-
-<p>cd Octopress/<br/>
-git pull origin source<br/>
-cd _deploy</p>
-
-<p>git commit &ndash;amend
-git rebase.</p>
-
-<p><a href="https://github.com/swplzj/swplzj.github.com.git">https://github.com/swplzj/swplzj.github.com.git</a>
-git@github.com:swplzj/swplzj.github.com.git
-、、、</p>
-
-<p><a href="http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/">http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/</a></p>
-
-<p><a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
-
-<p><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html</a>
-<a href="http://octopress.org/docs/blogging/">http://octopress.org/docs/blogging/</a></p>
-
-<p><a href="http://blog.csdn.net/xunyn/article/details/16889963">http://blog.csdn.net/xunyn/article/details/16889963</a></p>
-
-<p><a href="http://linglong117.blog.163.com/blog/static/27714547201332895056387/">http://linglong117.blog.163.com/blog/static/27714547201332895056387/</a></p>
-
-<p>//好博文
-<a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">http://blog.segmentfault.com/yaashion_xiang/1190000000364677</a></p>
-
-<p>An iOS developer, blog about programming and my growing.</p>
-
-<script async src="https://static.medium.com/embed.js"></script>
-
-
-<p><a class="m-profile" href="https://medium.com/@Medium">Medium</a></p>
-
-<p>主题
-白色
-<a href="http://lucaslew.com">http://lucaslew.com</a>
-//蓝色调
-<a href="http://bootstrap-theme.kutilovi.cz/blog/archives/">http://bootstrap-theme.kutilovi.cz/blog/archives/</a>
-//极简
-<a href="http://macjasp.github.io">http://macjasp.github.io</a>
-点微 / 动态展示
-<a href="http://demo.dotkrnl.com">http://demo.dotkrnl.com</a>
-瀑布流
-<a href="http://blog.hyfather.com">http://blog.hyfather.com</a>
-//绿色
-<a href="http://sofreshandsogreen.herokuapp.com">http://sofreshandsogreen.herokuapp.com</a></p>
-
-<h1>选中的主题</h1>
-
-<p>octopress-bootstrap Preview Based on Twitter Bootstrap</p>
-
-<p><a href="http://www.tuicool.com/articles/6rMjye">http://www.tuicool.com/articles/6rMjye</a></p>
-
-<p>官方文档
-<a href="https://github.com/imathis/octopress/wiki">https://github.com/imathis/octopress/wiki</a></p>
-
-<h4>创建一篇博文</h4>
-
-<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
-
-<h4>生成预览</h4>
-
-<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
-
-<h4>在线发布</h4>
-
-<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
-
-<h4>向 github 提交源文件更新</h4>
-
-<p>git add -A
-git commit -m :&ldquo;提交内容&rdquo;
-git push</p>
-
-<p>rake setup_github_pages
-生成静态站点：rake generate
-rake deploy</p>
-
-<h4>提交源文件，即source分支</h4>
-
-<p>git add .
-git commit -m &lsquo;your message&rsquo;
-git push origin source</p>
-
-<h4>克隆主题</h4>
-
-<p>$ cd Octopress<br/>
-$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
-$ rake install[&lsquo;foxslide&rsquo;]<br/>
-$ rake generate<br/>
-$ rake deploy</p>
-
-<p>$ cd octopress
-$ git submodule add GIT_URL .themes/THEME_NAME
-$ rake install[&lsquo;THEME_NAME&rsquo;]
-$ rake generate</p>
-
-<h4>拉取master分支</h4>
-
-<p>进入_deploy目录，运行如下命令
-git pull origin master</p>
-
-<h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
-
-<p>cd Octopress/<br/>
-git pull origin source<br/>
-cd _deploy</p>
-
-<p>git commit &ndash;amend
-git rebase.</p>
-
-<p><a href="https://github.com/swplzj/swplzj.github.com.git">https://github.com/swplzj/swplzj.github.com.git</a>
-git@github.com:swplzj/swplzj.github.com.git
-、、、</p>
-
-<p><a href="http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/">http://biaobiaoqi.me/blog/2013/03/21/building-octopress-in-github-mac/</a></p>
-
-<p><a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
-
-<p><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html</a>
-<a href="http://octopress.org/docs/blogging/">http://octopress.org/docs/blogging/</a></p>
-
-<p><a href="http://blog.csdn.net/xunyn/article/details/16889963">http://blog.csdn.net/xunyn/article/details/16889963</a></p>
-
-<p><a href="http://linglong117.blog.163.com/blog/static/27714547201332895056387/">http://linglong117.blog.163.com/blog/static/27714547201332895056387/</a></p>
-
-<p>//好博文
-<a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">http://blog.segmentfault.com/yaashion_xiang/1190000000364677</a></p>
-
-<p>An iOS developer, blog about programming and my growing.</p>
-
-<script async src="https://static.medium.com/embed.js"></script>
-
-
-<p><a class="m-profile" href="https://medium.com/@Medium">Medium</a></p>
-
-<p>主题
-白色
-<a href="http://lucaslew.com">http://lucaslew.com</a>
-//蓝色调
-<a href="http://bootstrap-theme.kutilovi.cz/blog/archives/">http://bootstrap-theme.kutilovi.cz/blog/archives/</a>
-//极简
-<a href="http://macjasp.github.io">http://macjasp.github.io</a>
-点微 / 动态展示
-<a href="http://demo.dotkrnl.com">http://demo.dotkrnl.com</a>
-瀑布流
-<a href="http://blog.hyfather.com">http://blog.hyfather.com</a>
-//绿色
-<a href="http://sofreshandsogreen.herokuapp.com">http://sofreshandsogreen.herokuapp.com</a></p>
-
-<h1>选中的主题</h1>
-
-<p>octopress-bootstrap Preview Based on Twitter Bootstrap</p>
-
-<p><a href="http://www.tuicool.com/articles/6rMjye">http://www.tuicool.com/articles/6rMjye</a></p>
-
-<p>官方文档
-<a href="https://github.com/imathis/octopress/wiki">https://github.com/imathis/octopress/wiki</a></p>
-
-<h4>创建一篇博文</h4>
-
-<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
-
-<h4>生成预览</h4>
-
-<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
-
-<h4>在线发布</h4>
-
-<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
-
-<h4>向 github 提交源文件更新</h4>
-
-<p>git add -A
-git commit -m :&ldquo;提交内容&rdquo;
-git push</p>
-
-<p>rake setup_github_pages
-生成静态站点：rake generate
-rake deploy</p>
-
-<h4>提交源文件，即source分支</h4>
-
-<p>git add .
-git commit -m &lsquo;your message&rsquo;
-git push origin source</p>
-
-<h4>克隆主题</h4>
-
-<p>$ cd Octopress<br/>
-$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
-$ rake install[&lsquo;foxslide&rsquo;]<br/>
-$ rake generate<br/>
-$ rake deploy</p>
-
-<p>$ cd octopress
-$ git submodule add GIT_URL .themes/THEME_NAME
-$ rake install[&lsquo;THEME_NAME&rsquo;]
-$ rake generate</p>
-
-<h4>拉取master分支</h4>
-
-<p>进入_deploy目录，运行如下命令
-git pull origin master</p>
-
-<h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
-
-<p>cd Octopress/<br/>
-git pull origin source<br/>
-cd _deploy</p>
-
-<p>git commit &ndash;amend
-git rebase.</p>
 
 		
 		
@@ -948,11 +509,40 @@ git rebase.</p>
 
 </article>
 
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-17T14:26:01+08:00" data-updated="true" itemprop="datePublished"></time></div>
+		<div class="tags">
+
+</div>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2014/09/17/firstblog/" itemprop="url">FirstBlog</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>这是我的第一篇博客。</p>
+
+		
+		
+	</div>
+
+</article>
+
 </div>
 <nav id="pagenavi">
     
-    
-        <a href="2" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
