@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-01-30T13:21:18+08:00</updated>
+  <updated>2015-01-30T13:49:39+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -446,33 +446,6 @@ cat_id          | 商品
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Update]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/18/update/"/>
-    <updated>2014-09-18T13:20:26+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/18/update</id>
-    <content type="html"><![CDATA[<p>更新主题</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Chage Theme]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/18/chage-theme/"/>
-    <updated>2014-09-18T11:51:55+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/18/chage-theme</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Change Config]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/18/change-config/"/>
-    <updated>2014-09-18T11:40:07+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/18/change-config</id>
-    <content type="html"><![CDATA[<p>更改博客设置</p>
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Five_blog]]></title>
     <link href="http://swplzj.github.io/blog/2014/09/17/five-blog/"/>
     <updated>2014-09-17T20:33:17+08:00</updated>
@@ -509,11 +482,99 @@ cat_id          | 商品
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[FirstBlog]]></title>
+    <title type="html"><![CDATA[搭建博客操作]]></title>
     <link href="http://swplzj.github.io/blog/2014/09/17/firstblog/"/>
     <updated>2014-09-17T14:26:01+08:00</updated>
     <id>http://swplzj.github.io/blog/2014/09/17/firstblog</id>
-    <content type="html"><![CDATA[<p>这是我的第一篇博客。</p>
+    <content type="html"><![CDATA[<p>终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。</p>
+
+<p><a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">搭建博客参考的文章</a>
+<a href="category/list.json.html">category/list.json</a></p>
+
+<p><a href="https://github.com/imathis/octopress/wiki">官方参考文档</a></p>
+
+<!--more-->
+
+
+<h4>创建一篇博文</h4>
+
+<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
+
+<h4>生成预览</h4>
+
+<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
+
+<h4>在线发布</h4>
+
+<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
+
+<h4>向 github 提交源文件更新</h4>
+
+<p>git add -A
+git commit -m :&ldquo;提交内容&rdquo;
+git push</p>
+
+<p>rake setup_github_pages
+生成静态站点：rake generate
+rake deploy</p>
+
+<h4>提交源文件，即source分支</h4>
+
+<p>git add .
+git commit -m &lsquo;your message&rsquo;
+git push origin source</p>
+
+<h4>克隆主题</h4>
+
+<p>$ cd Octopress<br/>
+$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
+$ rake install[&lsquo;foxslide&rsquo;]<br/>
+$ rake generate<br/>
+$ rake deploy</p>
+
+<p>$ cd octopress
+$ git submodule add GIT_URL .themes/THEME_NAME
+$ rake install[&lsquo;THEME_NAME&rsquo;]
+$ rake generate</p>
+
+<h4>拉取master分支</h4>
+
+<p>进入_deploy目录，运行如下命令
+git pull origin master</p>
+
+<h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
+
+<p>cd Octopress/<br/>
+git pull origin source<br/>
+cd _deploy</p>
+
+<p>git commit &ndash;amend
+git rebase.</p>
+
+<h5>因为你是从octopress github上clone的，所以你需要把origin这个branch换一个名字</h5>
+
+<p>git remote rename origin octopress<br/>
+git remote add origin (your github url)</p>
+
+<h4>把你的github branch作为默认的branch</h4>
+
+<p>git config branch.master.remote origin</p>
+
+<h4>把你的octopress导入到github上去</h4>
+
+<p>git push -u origin master</p>
+
+<h6>添加继续阅读</h6>
+
+<p>需要在文章中写<!--more--></p>
+
+<h6>Octopress添加回到顶部功能</h6>
+
+<p><a href="http://www.tuicool.com/articles/qu6ZfiV">http://www.tuicool.com/articles/qu6ZfiV</a></p>
+
+<h4>添加分页功能</h4>
+
+<p><a href="http://www.tuicool.com/articles/mIVJ7j">http://www.tuicool.com/articles/mIVJ7j</a></p>
 ]]></content>
   </entry>
   

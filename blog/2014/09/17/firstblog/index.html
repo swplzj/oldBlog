@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>FirstBlog - 李振杰</title>
+  <title>搭建博客操作 - 李振杰</title>
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="这是我的第一篇博客。
-">
+  <meta name="description" content="终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。 搭建博客参考的文章
+category/list.json 官方参考文档 创建一篇博文 rake new_post[&ldquo;post title&rdquo;] #octopress &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -50,7 +50,7 @@
   
   <header>
     
-      <h1 class="entry-title">FirstBlog</h1>
+      <h1 class="entry-title">搭建博客操作</h1>
     
     
       <p class="meta">
@@ -73,7 +73,95 @@
   </header>
 
 
-<div class="entry-content"><p>这是我的第一篇博客。</p>
+<div class="entry-content"><p>终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。</p>
+
+<p><a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">搭建博客参考的文章</a>
+<a href="category/list.json.html">category/list.json</a></p>
+
+<p><a href="https://github.com/imathis/octopress/wiki">官方参考文档</a></p>
+
+<!--more-->
+
+
+<h4>创建一篇博文</h4>
+
+<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
+
+<h4>生成预览</h4>
+
+<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
+
+<h4>在线发布</h4>
+
+<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
+
+<h4>向 github 提交源文件更新</h4>
+
+<p>git add -A
+git commit -m :&ldquo;提交内容&rdquo;
+git push</p>
+
+<p>rake setup_github_pages
+生成静态站点：rake generate
+rake deploy</p>
+
+<h4>提交源文件，即source分支</h4>
+
+<p>git add .
+git commit -m &lsquo;your message&rsquo;
+git push origin source</p>
+
+<h4>克隆主题</h4>
+
+<p>$ cd Octopress<br/>
+$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
+$ rake install[&lsquo;foxslide&rsquo;]<br/>
+$ rake generate<br/>
+$ rake deploy</p>
+
+<p>$ cd octopress
+$ git submodule add GIT_URL .themes/THEME_NAME
+$ rake install[&lsquo;THEME_NAME&rsquo;]
+$ rake generate</p>
+
+<h4>拉取master分支</h4>
+
+<p>进入_deploy目录，运行如下命令
+git pull origin master</p>
+
+<h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
+
+<p>cd Octopress/<br/>
+git pull origin source<br/>
+cd _deploy</p>
+
+<p>git commit &ndash;amend
+git rebase.</p>
+
+<h5>因为你是从octopress github上clone的，所以你需要把origin这个branch换一个名字</h5>
+
+<p>git remote rename origin octopress<br/>
+git remote add origin (your github url)</p>
+
+<h4>把你的github branch作为默认的branch</h4>
+
+<p>git config branch.master.remote origin</p>
+
+<h4>把你的octopress导入到github上去</h4>
+
+<p>git push -u origin master</p>
+
+<h6>添加继续阅读</h6>
+
+<p>需要在文章中写<!--more--></p>
+
+<h6>Octopress添加回到顶部功能</h6>
+
+<p><a href="http://www.tuicool.com/articles/qu6ZfiV">http://www.tuicool.com/articles/qu6ZfiV</a></p>
+
+<h4>添加分页功能</h4>
+
+<p><a href="http://www.tuicool.com/articles/mIVJ7j">http://www.tuicool.com/articles/mIVJ7j</a></p>
 </div>
 
 
