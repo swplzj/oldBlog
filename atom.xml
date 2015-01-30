@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-01-30T13:49:39+08:00</updated>
+  <updated>2015-01-30T13:53:09+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -488,8 +488,7 @@ cat_id          | 商品
     <id>http://swplzj.github.io/blog/2014/09/17/firstblog</id>
     <content type="html"><![CDATA[<p>终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。</p>
 
-<p><a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">搭建博客参考的文章</a>
-<a href="category/list.json.html">category/list.json</a></p>
+<p><a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">搭建博客参考的文章</a></p>
 
 <p><a href="https://github.com/imathis/octopress/wiki">官方参考文档</a></p>
 
