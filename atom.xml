@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-12T17:11:49+08:00</updated>
+  <updated>2015-02-12T17:19:48+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -429,9 +429,9 @@ cat_id          | 商品
   
   <entry>
     <title type="html"><![CDATA[移动App架构设计]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/21/geng-huan-zhu-ti/"/>
+    <link href="http://swplzj.github.io/blog/2014/09/21/yi-dong-app-jia-gou-she-ji/"/>
     <updated>2014-09-21T16:47:01+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/21/geng-huan-zhu-ti</id>
+    <id>http://swplzj.github.io/blog/2014/09/21/yi-dong-app-jia-gou-she-ji</id>
     <content type="html"><![CDATA[<p>Native app的开发相比传统的项目迭代周期要短很多, 需求的变化也频繁一些, 在开发的不同生命周期里采用不同的架构模式可以有效的节约开发时间, 提高开发效率, 这篇文章介绍几种常用的架构模式:</p>
 
 <!--more-->
@@ -693,9 +693,9 @@ cat_id          | 商品
   
   <entry>
     <title type="html"><![CDATA[使用VIPER构建iOS应用]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/17/five-blog/"/>
+    <link href="http://swplzj.github.io/blog/2014/09/17/shi-yong-viper-chuang-jian-kuang-jia/"/>
     <updated>2014-09-17T20:33:17+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/17/five-blog</id>
+    <id>http://swplzj.github.io/blog/2014/09/17/shi-yong-viper-chuang-jian-kuang-jia</id>
     <content type="html"><![CDATA[<p>建筑领域流行这样一句话，“我们虽然在营造建筑，但建筑也会重新塑造我们”。正如所有开发者最终领悟到的，这句话同样适用于构建软件。</p>
 
 <p>编写代码中至关重要的是，需要使每一部分容易被识别，赋有一个特定而明显的目的，并与其他部分在逻辑关系中完美契合。这就是我们所说的软件架构。好的架构不仅让一个产品成功投入使用，还可以让产品具有可维护性，并让人不断头脑清醒的对它进行维护！</p>
@@ -1552,9 +1552,9 @@ cat_id          | 商品
   
   <entry>
     <title type="html"><![CDATA[iOS多线程操作：锁 互斥 同步]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/17/fourth-blog/"/>
+    <link href="http://swplzj.github.io/blog/2014/09/17/ios-duo-xian-cheng-cao-zuo/"/>
     <updated>2014-09-17T19:03:45+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/17/fourth-blog</id>
+    <id>http://swplzj.github.io/blog/2014/09/17/ios-duo-xian-cheng-cao-zuo</id>
     <content type="html"><![CDATA[<p>在iOS中有几种方法来解决多线程访问同一个内存地址的互斥同步问题，本文简单介绍：</p>
 
 <h5>方法一，@synchronized(id anObject),(最简单的方法)</h5>
@@ -1680,9 +1680,9 @@ lockBeforeDate:，在指定的date之前暂时阻塞线程（如果没有获取�
   
   <entry>
     <title type="html"><![CDATA[《抬起头吧》]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/17/third-blog/"/>
+    <link href="http://swplzj.github.io/blog/2014/09/17/look-up/"/>
     <updated>2014-09-17T18:54:32+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/17/third-blog</id>
+    <id>http://swplzj.github.io/blog/2014/09/17/look-up</id>
     <content type="html"><![CDATA[<h4>《Look up》-《抬起头吧》很有感触</h4>
 
 <p>我有好几百位手机好友，但我仍然常常感到孤独；我每天跟他们聊天，但是好像他们并不了解真正的我。我的疑问来自于人与人之间的相处方式，我究竟是想看着他们的眼睛，还是手机上的昵称？直到有一天我发现，所谓的社交网络，并不完全是我们看到的那样。当我们打开电脑或者手机，其实也就关上了彼此心灵沟通的大门。</p>
@@ -2827,9 +2827,9 @@ m_mainImgView.layer.masksToBounds = YES;）
   
   <entry>
     <title type="html"><![CDATA[搭建博客操作]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/17/firstblog/"/>
+    <link href="http://swplzj.github.io/blog/2014/09/17/da-jian-bo-ke-cao-zuo/"/>
     <updated>2014-09-17T14:26:01+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/17/firstblog</id>
+    <id>http://swplzj.github.io/blog/2014/09/17/da-jian-bo-ke-cao-zuo</id>
     <content type="html"><![CDATA[<p>终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。</p>
 
 <p><a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">搭建博客参考的文章</a></p>
@@ -2967,9 +2967,9 @@ m_mainImgView.layer.masksToBounds = YES;）
   
   <entry>
     <title type="html"><![CDATA[XCODE LLDB命令的简单实用说明]]></title>
-    <link href="http://swplzj.github.io/blog/2014/07/21/geng-huan-zhu-ti%20copy/"/>
+    <link href="http://swplzj.github.io/blog/2014/07/21/xcode-lldb-ming-ling-jian-dan-shi-yong/"/>
     <updated>2014-07-21T16:47:01+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/07/21/geng-huan-zhu-ti copy</id>
+    <id>http://swplzj.github.io/blog/2014/07/21/xcode-lldb-ming-ling-jian-dan-shi-yong</id>
     <content type="html"><![CDATA[<p>po（print object）是LLDB的一个命令，其主要功能是输出objective-c中对象（objects）的信息，与之相似的另外一个命令是 p（print），其主要功能是输出原生类型（boolean、integer、float、etc）的信息。</p>
 
 <!--more-->
