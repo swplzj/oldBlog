@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-12T10:40:10+08:00</updated>
+  <updated>2015-02-12T10:51:46+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -644,7 +644,7 @@ cat_id          | 商品
 
 <p>首先设置好断点，如下图所示：</p>
 
-<p><img src="230128_xFae_724414.png" alt="ImageDemo" /></p>
+<p><img src="http://static.oschina.net/uploads/space/2013/0320/230128_xFae_724414.png" title="image" alt="id1" /></p>
 
 <p>运行app，进入断点模式后，在（lldb）后输入</p>
 
