@@ -76,6 +76,9 @@ po self. &hellip;">
 
 <div class="entry-content"><p>po（print object）是LLDB的一个命令，其主要功能是输出objective-c中对象（objects）的信息，与之相似的另外一个命令是 p（print），其主要功能是输出原生类型（boolean、integer、float、etc）的信息。</p>
 
+<!--more-->
+
+
 <p>可以在控制台输入</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -92,7 +95,7 @@ po self. &hellip;">
 
 <p>首先设置好断点，如下图所示：</p>
 
-<p><img src="http://static.oschina.net/uploads/space/2013/0320/230128_xFae_724414.png" title="image" alt="id1" /></p>
+<p><img src="http://static.oschina.net/uploads/space/2013/0320/230128_xFae_724414.png" title="设置断点" alt="id1" /></p>
 
 <p>运行app，进入断点模式后，在（lldb）后输入</p>
 
@@ -122,6 +125,8 @@ po self. &hellip;">
 
 <p>右击断点选择“Edit Breakpoint…”（或者按住cmd+option，单击断点），然后如下图所示设置断点</p>
 
+<p><img src="http://static.oschina.net/uploads/space/2013/0320/231442_eqyO_724414.png" title="编辑断点" alt="id2" /></p>
+
 <p>注意选中了最后一行（“Automatically continue after evaluating”）的选择框，这就保证运行到这个断点的时，填充变量的值，然后继续运行，并不在此处断点进入调试模式。</p>
 
 <p>运行app，你会得到和上述手动设置变量的值一样的输出。</p>
@@ -131,6 +136,8 @@ po self. &hellip;">
 <h4>技巧二：设置断点触发条件</h4>
 
 <p>断点的另外一个重要作用，是可以设置触发断点生效的条件，这样我们就可以在运行时针对特定的数据进行分析，观察app是否运行在正确的轨道上。如下图：</p>
+
+<p><img src="http://static.oschina.net/uploads/space/2013/0320/232822_rEBO_724414.png" title="触发条件" alt="id3" /></p>
 
 <p>上述截图可以看到如下语句</p>
 
