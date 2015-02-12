@@ -9,7 +9,8 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="Part 1 1、说说OC内存管理； 2、ASIRequest是什么； 3、怎么输出json字符串； 4、说说http头部有哪些内容； 5、说说OC生命周期； 6、运用第三方框架，到时候出了问题，谁来负责 7、自己写一个strcpy函数 8、字母统计(如，输入字符串“ &hellip;">
+  <meta name="description" content="很全的面试题，有百度腾讯各大公司的真题，快来看看吧。 Part 1 1、说说OC内存管理； 2、ASIRequest是什么； 3、怎么输出json字符串； 4、说说http头部有哪些内容； 5、说说OC生命周期；
+6、运用第三方框架，到时候出了问题，谁来负责 7、自己写一个strcpy函数 8、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,7 +73,9 @@
   </header>
 
 
-<div class="entry-content"><h4>Part 1</h4>
+<div class="entry-content"><p>很全的面试题，有百度腾讯各大公司的真题，快来看看吧。</p>
+
+<h4>Part 1</h4>
 
 <p>1、说说OC内存管理；</p>
 
@@ -80,11 +83,13 @@
 
 <p>3、怎么输出json字符串；</p>
 
+<!--more-->
+
+
 <p>4、说说http头部有哪些内容；</p>
 
-<p>5、说说OC生命周期；</p>
-
-<p>6、运用第三方框架，到时候出了问题，谁来负责</p>
+<p>5、说说OC生命周期；
+6、运用第三方框架，到时候出了问题，谁来负责</p>
 
 <p>7、自己写一个strcpy函数</p>
 
@@ -162,8 +167,11 @@
 
 <p>30、什么时候用delegate,什么时候用Notification?</p>
 
-<p>31、写一个”标准”宏MIN ，这个宏输入两个参数并返回较小的一个。当你写下面的代码时会发生什么事？
-least = MIN(*p++, b);</p>
+<p>31、写一个”标准”宏MIN ，这个宏输入两个参数并返回较小的一个。当你写下面的代码时会发生什么事？</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>least = MIN(*p++, b);</span></code></pre></td></tr></table></div></figure>
+
 
 <p>32、MVC模式的理解</p>
 
@@ -184,18 +192,10 @@ least = MIN(*p++, b);</p>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>constint a;
-</span><span class='line'>
 </span><span class='line'>intconst a;
-</span><span class='line'>
 </span><span class='line'>constint *a;
-</span><span class='line'>
 </span><span class='line'>int* const a;
-</span><span class='line'>
 </span><span class='line'>intconst * a const;</span></code></pre></td></tr></table></div></figure>
 
 
@@ -261,9 +261,7 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>第6章写的尤其好</p>
 
-<p>KVO/KVC 实现机理分析</p>
-
-<p><a href="http://archive.cnblogs.com/a/1886332/">http://archive.cnblogs.com/a/1886332/</a></p>
+<p><a href="http://archive.cnblogs.com/a/1886332/">KVO/KVC 实现机理分析</a></p>
 
 <p>2.CALayer和View的关系
 一个UIView包含CALayer树，CALayer是一个数据模型，包含了一些用于显示的对象，但本身不用于显示。</p>
@@ -288,22 +286,21 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>objective-c – 类里面的方法只有两种, 静态方法和实例方法. 这似乎就不是完整的面向对象了,按照OO的原则就是一个对象只暴露有用的东西. 如果没有了私有方法的话, 对于一些小范围的代码重用就不那么顺手了. 在类里面声名一个私有方法</p>
 
-<p>@interface Controller : NSObject { NSString *something; }</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface Controller : NSObject { NSString *something; }
+</span><span class='line'>+ (void)thisIsAStaticMethod;
+</span><span class='line'>– (void)thisIsAnInstanceMethod;
+</span><span class='line'>@end
+</span><span class='line'>@interface Controller (private) -
+</span><span class='line'>(void)thisIsAPrivateMethod;
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
 
-<ul>
-<li>(void)thisIsAStaticMethod;</li>
-</ul>
-
-
-<p>– (void)thisIsAnInstanceMethod;</p>
-
-<p>@end</p>
-
-<p>@interface Controller (private) -</p>
-
-<p>(void)thisIsAPrivateMethod;</p>
-
-<p>@end</p>
 
 <p>@private可以用来修饰私有变量</p>
 
@@ -313,15 +310,17 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>const意味着”只读”，下面的声明都是什么意思？</p>
 
-<p>const int a;</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>const int a;
+</span><span class='line'>int const a;
+</span><span class='line'>const int *a;
+</span><span class='line'>int * const a;
+</span><span class='line'>int const * a const;</span></code></pre></td></tr></table></div></figure>
 
-<p>int const a;</p>
-
-<p>const int *a;</p>
-
-<p>int * const a;</p>
-
-<p>int const * a const;</p>
 
 <p>前两个的作用是一样，a是一个常整型数。第三个意味着a是一个指向常整型数的指针（也就是，整型数是不可修改的，但指针可以）。第四个意思a是一个指向整 型数的常指针（也就是说，指针指向的整型数是可以修改的，但指针是不可修改的）。最后一个意味着a是一个指向常整型数的常指针（也就是说，指针指向的整型 数是不可修改的，同时指针也是不可修改的）。</p>
 
@@ -449,13 +448,15 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>加了atomic，setter函数会变成下面这样：</p>
 
-<p>if (property != newValue) {</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if (property != newValue) {
+</span><span class='line'>  [property release];
+</span><span class='line'>  property = [newValue retain];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-<p>[property release];</p>
-
-<p>property = [newValue retain];</p>
-
-<p>}</p>
 
 <h5>12、对象是什么时候被release的？</h5>
 
@@ -471,7 +472,13 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>查看UITableView头文件，会找到NSMutableArray<em>  visiableCells，和 NSMutableDictnery</em> reusableTableCells两个结构。visiableCells内保存当前显示的 cells，reusableTableCells保存可重用的cells。</p>
 
-<p>TableView显示之初，reusableTableCells为空，那么 tableView dequeueReusableCellWithIdentifier:CellIdentifier返回nil。开始的cell都 是通过 [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] 来创建，而且cellForRowAtIndexPath只是调用最大显示cell数的次数。</p>
+<p>TableView显示之初，reusableTableCells为空，那么 tableView dequeueReusableCellWithIdentifier:CellIdentifier返回nil。开始的cell都 是通过</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] </span></code></pre></td></tr></table></div></figure>
+
+
+<p>来创建，而且cellForRowAtIndexPath只是调用最大显示cell数的次数。</p>
 
 <p>比如：有100条数据，iPhone一屏最多显示10个cell。程序最开始显示TableView的情况是：</p>
 

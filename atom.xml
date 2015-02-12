@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-12T13:35:49+08:00</updated>
+  <updated>2015-02-12T14:09:38+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -472,6 +472,9 @@ cat_id          | 商品
 
 <p>我有好几百位手机好友，但我仍然常常感到孤独；我每天跟他们聊天，但是好像他们并不了解真正的我。我的疑问来自于人与人之间的相处方式，我究竟是想看着他们的眼睛，还是手机上的昵称？直到有一天我发现，所谓的社交网络，并不完全是我们看到的那样。当我们打开电脑或者手机，其实也就关上了彼此心灵沟通的大门。</p>
 
+<!--more-->
+
+
 <p>假如有一天，你离开了网络，你就会发现，我们生活在一个令人困惑的世界中，一个我们本该主宰却被其掌控的世界，一个只顾自身利益、自身形象和自我推销的世界。在这个世界里，商人兜售着我们的个人信息。我们只会分享自己最好的一面，却不带任何真实感情。人生最快乐的事就是和别人共享生活的美好，但如果其他人都不在现场，我们还会一样快乐吗？</p>
 
 <p>我们经常转发一些经过修饰和夸大的信息，只是为了得到别人的赞美。我们不停地刷新朋友圈。那些流行的文字和图片，让生活看起来似乎很精彩，好像就发生在你我身边，只是不知道是否有人真正用心去看。</p>
@@ -495,7 +498,9 @@ cat_id          | 商品
     <link href="http://swplzj.github.io/blog/2014/09/17/second/"/>
     <updated>2014-09-17T17:29:15+08:00</updated>
     <id>http://swplzj.github.io/blog/2014/09/17/second</id>
-    <content type="html"><![CDATA[<h4>Part 1</h4>
+    <content type="html"><![CDATA[<p>很全的面试题，有百度腾讯各大公司的真题，快来看看吧。</p>
+
+<h4>Part 1</h4>
 
 <p>1、说说OC内存管理；</p>
 
@@ -503,11 +508,13 @@ cat_id          | 商品
 
 <p>3、怎么输出json字符串；</p>
 
+<!--more-->
+
+
 <p>4、说说http头部有哪些内容；</p>
 
-<p>5、说说OC生命周期；</p>
-
-<p>6、运用第三方框架，到时候出了问题，谁来负责</p>
+<p>5、说说OC生命周期；
+6、运用第三方框架，到时候出了问题，谁来负责</p>
 
 <p>7、自己写一个strcpy函数</p>
 
@@ -585,8 +592,11 @@ cat_id          | 商品
 
 <p>30、什么时候用delegate,什么时候用Notification?</p>
 
-<p>31、写一个”标准”宏MIN ，这个宏输入两个参数并返回较小的一个。当你写下面的代码时会发生什么事？
-least = MIN(*p++, b);</p>
+<p>31、写一个”标准”宏MIN ，这个宏输入两个参数并返回较小的一个。当你写下面的代码时会发生什么事？</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>least = MIN(*p++, b);</span></code></pre></td></tr></table></div></figure>
+
 
 <p>32、MVC模式的理解</p>
 
@@ -607,18 +617,10 @@ least = MIN(*p++, b);</p>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>constint a;
-</span><span class='line'>
 </span><span class='line'>intconst a;
-</span><span class='line'>
 </span><span class='line'>constint *a;
-</span><span class='line'>
 </span><span class='line'>int* const a;
-</span><span class='line'>
 </span><span class='line'>intconst * a const;</span></code></pre></td></tr></table></div></figure>
 
 
@@ -684,9 +686,7 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>第6章写的尤其好</p>
 
-<p>KVO/KVC 实现机理分析</p>
-
-<p><a href="http://archive.cnblogs.com/a/1886332/">http://archive.cnblogs.com/a/1886332/</a></p>
+<p><a href="http://archive.cnblogs.com/a/1886332/">KVO/KVC 实现机理分析</a></p>
 
 <p>2.CALayer和View的关系
 一个UIView包含CALayer树，CALayer是一个数据模型，包含了一些用于显示的对象，但本身不用于显示。</p>
@@ -711,22 +711,21 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>objective-c – 类里面的方法只有两种, 静态方法和实例方法. 这似乎就不是完整的面向对象了,按照OO的原则就是一个对象只暴露有用的东西. 如果没有了私有方法的话, 对于一些小范围的代码重用就不那么顺手了. 在类里面声名一个私有方法</p>
 
-<p>@interface Controller : NSObject { NSString *something; }</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface Controller : NSObject { NSString *something; }
+</span><span class='line'>+ (void)thisIsAStaticMethod;
+</span><span class='line'>– (void)thisIsAnInstanceMethod;
+</span><span class='line'>@end
+</span><span class='line'>@interface Controller (private) -
+</span><span class='line'>(void)thisIsAPrivateMethod;
+</span><span class='line'>@end</span></code></pre></td></tr></table></div></figure>
 
-<ul>
-<li>(void)thisIsAStaticMethod;</li>
-</ul>
-
-
-<p>– (void)thisIsAnInstanceMethod;</p>
-
-<p>@end</p>
-
-<p>@interface Controller (private) -</p>
-
-<p>(void)thisIsAPrivateMethod;</p>
-
-<p>@end</p>
 
 <p>@private可以用来修饰私有变量</p>
 
@@ -736,15 +735,17 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>const意味着”只读”，下面的声明都是什么意思？</p>
 
-<p>const int a;</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>const int a;
+</span><span class='line'>int const a;
+</span><span class='line'>const int *a;
+</span><span class='line'>int * const a;
+</span><span class='line'>int const * a const;</span></code></pre></td></tr></table></div></figure>
 
-<p>int const a;</p>
-
-<p>const int *a;</p>
-
-<p>int * const a;</p>
-
-<p>int const * a const;</p>
 
 <p>前两个的作用是一样，a是一个常整型数。第三个意味着a是一个指向常整型数的指针（也就是，整型数是不可修改的，但指针可以）。第四个意思a是一个指向整 型数的常指针（也就是说，指针指向的整型数是可以修改的，但指针是不可修改的）。最后一个意味着a是一个指向常整型数的常指针（也就是说，指针指向的整型 数是不可修改的，同时指针也是不可修改的）。</p>
 
@@ -872,13 +873,15 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>加了atomic，setter函数会变成下面这样：</p>
 
-<p>if (property != newValue) {</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if (property != newValue) {
+</span><span class='line'>  [property release];
+</span><span class='line'>  property = [newValue retain];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-<p>[property release];</p>
-
-<p>property = [newValue retain];</p>
-
-<p>}</p>
 
 <h5>12、对象是什么时候被release的？</h5>
 
@@ -894,7 +897,13 @@ m_mainImgView.layer.masksToBounds = YES;）
 
 <p>查看UITableView头文件，会找到NSMutableArray<em>  visiableCells，和 NSMutableDictnery</em> reusableTableCells两个结构。visiableCells内保存当前显示的 cells，reusableTableCells保存可重用的cells。</p>
 
-<p>TableView显示之初，reusableTableCells为空，那么 tableView dequeueReusableCellWithIdentifier:CellIdentifier返回nil。开始的cell都 是通过 [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] 来创建，而且cellForRowAtIndexPath只是调用最大显示cell数的次数。</p>
+<p>TableView显示之初，reusableTableCells为空，那么 tableView dequeueReusableCellWithIdentifier:CellIdentifier返回nil。开始的cell都 是通过</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] </span></code></pre></td></tr></table></div></figure>
+
+
+<p>来创建，而且cellForRowAtIndexPath只是调用最大显示cell数的次数。</p>
 
 <p>比如：有100条数据，iPhone一屏最多显示10个cell。程序最开始显示TableView的情况是：</p>
 
