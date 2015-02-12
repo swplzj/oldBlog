@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-12T17:01:10+08:00</updated>
+  <updated>2015-02-12T17:11:49+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -446,29 +446,37 @@ cat_id          | 商品
 <table>
 <thead>
 <tr>
-<th>层次      </th>
-<th> 作用     </th>
-<th> 设计原则</th>
+<th>层次</th>
+<th>作用</th>
+<th>设计原则</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>模型层(model)</td>
-<td>   封装了应用的一系列数据, 并定义了操作, 处理这些数据的逻辑和计算规则。</td>
+<td>封装了应用的一系列数据, 并定义了操作, 处理这些数据的逻辑和计算规则。</td>
 <td>通过Notification,KVO对控制器进行反馈</td>
 </tr>
 <tr>
-<td>视图层(view) </td>
-<td>视图对象是一个应用中, 用户可以看到的对象. 视图对象知道如何绘制自己, 也能够响应用户的操作. 视图对象的主要目的之一是将应用模型对象中的数据显示出来, 并允许用户编辑该数据 </td>
+<td>视图层(view)</td>
+<td>视图对象是一个应用中, 用户可以看到的对象. 视图对象知道如何绘制自己, 也能够响应用户的操作. 视图对象的主要目的之一是将应用模型对象中的数据显示出来, 并允许用户编辑该数据</td>
 <td>视图通过不能直接操作模型层, 通过target-action, delegate, dataSource和控制器进行反馈</td>
 </tr>
 <tr>
-<td>控制器层(controller)    </td>
+<td>控制器层(controller)</td>
 <td>控制器层是在视图层和若干个模型层的中间人</td>
-<td> c可以直接操作模型层和视图层</td>
+<td>c可以直接操作模型层和视图层</td>
 </tr>
 </tbody>
 </table>
+
+
+<!--层次      | 作用     | 设计原则
+-------|-------|-------
+模型层(model)|   封装了应用的一系列数据, 并定义了操作, 处理这些数据的逻辑和计算规则。|通过Notification,KVO对控制器进行反馈
+视图层(view) |视图对象是一个应用中, 用户可以看到的对象. 视图对象知道如何绘制自己, 也能够响应用户的操作. 视图对象的主要目的之一是将应用模型对象中的数据显示出来, 并允许用户编辑该数据 |视图通过不能直接操作模型层, 通过target-action, delegate, dataSource和控制器进行反馈
+控制器层(controller)    |控制器层是在视图层和若干个模型层的中间人| c可以直接操作模型层和视图层
+-->
 
 
 <p><img src="https://github.com/uxyheaven/NativeAppFrameworkDesign/raw/master/image/mvc.png" alt="id1" /></p>
