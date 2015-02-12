@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-12T18:47:00+08:00</updated>
+  <updated>2015-02-12T20:13:43+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -14,7 +14,337 @@
 
   
   <entry>
-    <title type="html"><![CDATA[@IOS5以上：设置控件全局显示样式《APPEARANCE PROXY》]]></title>
+    <title type="html"><![CDATA[App在iTunes Connect里面的几种状态]]></title>
+    <link href="http://swplzj.github.io/blog/2015/02/12/appzai-itunes-connectli-mian-de-ji-chong-zhuang-tai/"/>
+    <updated>2015-02-12T20:00:41+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/02/12/appzai-itunes-connectli-mian-de-ji-chong-zhuang-tai</id>
+    <content type="html"><![CDATA[<h4>Waiting for Upload (Yellow)</h4>
+
+<p>Appears when you’ve completed entering your metadata, however, you have not finished uploading your binary or have chosen to upload your binary at a later time. Your app must be in the Waiting For Upload state before you can deliver your binary through Application Loader.</p>
+
+<!--more-->
+
+
+<h4>Prepare for Upload (Yellow)</h4>
+
+<p>Appears when you have created a new version, but you have not yet clicked the Ready to Submit Binary button. This state also indicates that you can now deliver your binary through Application Loader.</p>
+
+<h4>Upload Received (Yellow)</h4>
+
+<p>Appears when your binary has been received through Application Loader, but is still being processed by the iTunes Connect system.</p>
+
+<h4>Invalid Binary (Red)</h4>
+
+<p>Appears when a binary is received through Application Loader, has been processed, but your binary is invalid.  Examples of an invalid binary are: your binary icon does not meet our requirements, you have placed the payload directory at the wrong level in the .app wrapper, you attempted to use a non-increasing CFBundleVersion, etc.</p>
+
+<h4>Missing Screenshot (Red)</h4>
+
+<p>Appears when your app is missing a required screenshot for iPhone and iPod touch or iPad for your default language app or for your added localizations. At least one screenshot is required for both iPhone and iPod touch and for iPad if you are submitting a universal app.</p>
+
+<h4>Waiting for Review (Yellow)</h4>
+
+<p>Appears after you submit a new application or update and prior to the application being reviewed by Apple. This status means that your app has been added to the app review queue, but has not yet started the review process.</p>
+
+<h4>Waiting For Export Compliance (Yellow)</h4>
+
+<p>Appears when your CCATS is in review with Export Compliance.</p>
+
+<h4>In Review (Yellow)</h4>
+
+<p>Appears when we are reviewing your app prior to the application being approved or rejected. It takes time to review binaries so we appreciate your patience and ask that you allow sufficient time for the processing of your application.  When the status of your application is in review, you have the option to reject the binary you have submitted by clicking Reject Binary. This will remove your binary from the review queue and will allow for another update to be submitted. If you reject your binary, the status of your app will change to Developer Rejected and when your binary is re-submitted, the review process will start over from the beginning.</p>
+
+<h4>Pending Contract (Yellow)</h4>
+
+<p>Appears when your application has been reviewed and is Ready for Sale but your contracts are not yet in effect. You may check the progress of your contracts in iTunes Connect by clicking on the Contracts, Tax &amp; Banking information module.</p>
+
+<h4>Pending Developer Release (Yellow)</h4>
+
+<p>Appears when the version of your app has been approved by Apple and you have turned on the Version Release Control, but have not yet clicked Send Version Live. You should also see a pending action symbol on the version. Your version will remain in this state, and thus will not be live on the App Store until you click Send Version Live.</p>
+
+<h4>Processing for App Store (Yellow)</h4>
+
+<p>Appears when the version is being processed to go live on the App Store. Once the processing is complete, the version state will change to “Ready for Sale.” This is a temporary state (approx. 1 – 2 hours).</p>
+
+<h4>Ready for Sale (Green)</h4>
+
+<p>Appears once your application been approved and posted to the App Store. When your application is in this status, you have the option to remove it from the store by going to the Rights and Pricing page and removing all App Store territories.</p>
+
+<h4>Rejected (Red)</h4>
+
+<p>Appears when the binary has been rejected.</p>
+
+<h4>Removed from Sale (Red)</h4>
+
+<p>Appears when the binary has been removed from the App Store.</p>
+
+<h4>Developer Rejected (Red)</h4>
+
+<p>Appears when youʼve rejected the binary from the review process. Existing versions of your application on the App Store will not be affected by self-rejecting binaries in review.</p>
+
+<p>Important: When you self-reject your binary, you lose your place in the review queue. Your binary will be placed at the end of the queue when you resubmit.</p>
+
+<h4>Developer Removed from Sale (Red)</h4>
+
+<p>Appears when you’ve removed your application from the App Store.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac版本cornerstone的无限期破解方法]]></title>
+    <link href="http://swplzj.github.io/blog/2015/02/12/macban-ben-cornerstonede-wu-xian-qi-po-jie-fang-fa/"/>
+    <updated>2015-02-12T19:39:29+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/02/12/macban-ben-cornerstonede-wu-xian-qi-po-jie-fang-fa</id>
+    <content type="html"><![CDATA[<p>CornerStone是个人非常喜欢的mac上的一款SVN客户端工具，官方提供了14天的免费试用（trail）版本。我们可以在此基础上提供无限期试用版本。</p>
+
+<!--more-->
+
+
+<h4>方法一：修改系统时间</h4>
+
+<p>如果你从来没有安装过这个trail版本，直接把当前系统时间改成未来的某个时间。
+比如2020年，然后安装，运行一次。之后退出程序，将系统时间还原。恭喜你，你已经破解完成了。</p>
+
+<h4>方法二：如果你不幸已经安装并运行过软件，那就需要找到安装记录并删除它。</h4>
+
+<p>步骤如下：
+1，显示系统隐藏文件。
+在终端（Terminal）中输入如下命令：defaults write ~/Library/Preferences/com.apple.finder AppleShowAllFiles -bool true
+（true 改成 false 就可以不再显示隐藏文件）需要重启，然后在finder中就可以看到隐藏文件了。
+2，打开~/Library/Preferences/ByHost下的GlobalPreferences.XXXX.plist文件，XXXX为一串 数字，删掉&#8221;com.zennaware.Cornerstone:2.0&#8221;这一行，然后保存。（如果安装了XCode，会自动打开plist文件，否则 就得自己找个plist文件工具了，比如PlistEdit）
+3，就此，安装记录已经删除，然后请重复方法一的步骤。</p>
+
+<h4>心得：</h4>
+
+<p>对于这类不需要连接服务器进行验证的限期使用软件，都可以采用类似的方法破解。
+1，软件必须要在系统中找一个地方存储安装信息。
+2，在mac文件系统里找到这个地方。
+3，删掉生成的时间记录。
+4，重新运行。
+难点在于第二步，具体以后再说了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在iOS上绘制自然的签名]]></title>
+    <link href="http://swplzj.github.io/blog/2015/02/12/zai-iosshang-hui-zhi-zi-ran-de-qian-ming/"/>
+    <updated>2015-02-12T19:32:25+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/02/12/zai-iosshang-hui-zhi-zi-ran-de-qian-ming</id>
+    <content type="html"><![CDATA[<p>这里有一篇很棒的文章写如何在Android上获取流畅的签名：<a href="http://corner.squareup.com/2012/07/smoother-signatures.html">Smoother Signatures</a>，但是我没有找到一篇是写在iOS上如何实现。那么，究竟怎么做才能在iOS设备上获取用户的签名呢？</p>
+
+<!--more-->
+
+
+<p>虽然我没有找到任何关于获取签名的文章，但是在App store上已经有了实现得很好的app。  <a href="http://fiftythree.com/paper">Paper by 53</a> 是一个画画的iPad应用程序，它拥有漂亮并且灵敏的画笔，这也是我所要追求的用户体验。</p>
+
+<p>代码可以从这里得到： <a href="https://www.github.com/jharwig/SignatureDemo">SignatureDemo</a></p>
+
+<h5>连点成线</h5>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/25/1366858755_4942.png" alt="id1" /></p>
+
+<p>最简单得办法是，依次获取触摸点并且用直线把它们连起来。
+在UIView子类的初始化方法中创建path和用于捕获触摸事件的gesture recongnizer .</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// Create a path to connect lines
+</span><span class='line'>path = [UIBezierPath bezierPath];
+</span><span class='line'>
+</span><span class='line'>// Capture touches
+</span><span class='line'>UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+</span><span class='line'>pan.maximumNumberOfTouches = pan.minimumNumberOfTouches = 1;
+</span><span class='line'>[self addGestureRecognizer:pan];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将捕获到的pan事件location数据依次加入到贝塞尔path中，连点成线。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)pan:(UIPanGestureRecognizer *)pan {
+</span><span class='line'>    CGPoint currentPoint = [pan locationInView:self];
+</span><span class='line'>
+</span><span class='line'>    if (pan.state == UIGestureRecognizerStateBegan) {
+</span><span class='line'>        [path moveToPoint:currentPoint];
+</span><span class='line'>    } else if (pan.state == UIGestureRecognizerStateChanged)
+</span><span class='line'>        [path addLineToPoint:currentPoint];
+</span><span class='line'>
+</span><span class='line'>    [self setNeedsDisplay];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>画出轨迹</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)drawRect:(CGRect)rect
+</span><span class='line'>{
+</span><span class='line'>    [[UIColor blackColor] setStroke];
+</span><span class='line'>    [path stroke];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://img.my.csdn.net/uploads/201304/25/1366859967_1064.png" title="image" alt="id2" /></p>
+
+<p>用这种方法画个字母J就暴露出一些问题了。
+当签名速度较慢时，iOS可以捕获到足够的touch位置信息，让连接起来的直线看起来不那么明显。但是当手指移动速度很快时就有麻烦了。</p>
+
+<p>在2012苹果开发者大会中介绍的 Building Advanced Gesture Recognizers 提到，可以用数学来解决这个问题。</p>
+
+<h5>二次贝塞尔曲线</h5>
+
+<p>我们需要用二次贝塞尔曲线去连接那些触摸点，而并非用直线，可以参考上面给出的苹果开发者大会视频（大约在42：15处）。连接二次贝塞尔曲线时，应把触摸点当作控制点，而取中点为对应的起点和终点。</p>
+
+<p>添加二次贝塞尔曲线到之前的代码中，需要用到上一次的touch信息，所以我们增加一个实例变量来存储它。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CGPoint previousPoint;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>写一个计算2点中点的方法</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>static CGPoint midpoint(CGPoint p0, CGPoint p1) {
+</span><span class='line'>    return (CGPoint) {
+</span><span class='line'>        (p0.x + p1.x) / 2.0,
+</span><span class='line'>        (p0.y + p1.y) / 2.0
+</span><span class='line'>    };
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>更新手势处理，用二次贝塞尔曲线替换掉之前的直接连接处理</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)pan:(UIPanGestureRecognizer *)pan {
+</span><span class='line'>    CGPoint currentPoint = [pan locationInView:self];
+</span><span class='line'>    CGPoint midPoint = midpoint(previousPoint, currentPoint);
+</span><span class='line'>
+</span><span class='line'>    if (pan.state == UIGestureRecognizerStateBegan) {
+</span><span class='line'>        [path moveToPoint:currentPoint];
+</span><span class='line'>    } else if (pan.state == UIGestureRecognizerStateChanged) {
+</span><span class='line'>        [path addQuadCurveToPoint:midPoint controlPoint:previousPoint];
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    previousPoint = currentPoint;
+</span><span class='line'>
+</span><span class='line'>    [self setNeedsDisplay];
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://img.my.csdn.net/uploads/201304/25/1366862268_4928.png" alt="id3" /></p>
+
+<p>没有写很多代码，我们就看到了很大的改观。棱角不见了，但是作为签名似乎有点乏味。每一处曲线都是等宽的，和用一只真正的钢笔签出来的签名效果相违背。</p>
+
+<h5>可变的笔刷宽度</h5>
+
+<p>笔刷的宽度应该基于签名的速度而变化，这样的签名看起来才自然。UIPanGestureRecognizer 有一个 velocityInView 方法可以返回当前触摸点的速度。</p>
+
+<p>为了画出变化的宽度，我改用OpenGL ES 曲面细分将笔刷转换成三角序列（OpenGL支持画线，但是iOS不支持绘制平滑的可变宽度的线条）。二次贝塞尔曲线点需要重新计算，但是这超出了这篇文章的讨论范畴，具体可以查看代码：github</p>
+
+<p>用相邻的2个二次贝塞尔曲线点来说明一下，可以计算得到此两点差值表示的向量的垂直向量，并且设定其长度为当前厚度值的1/2（译者注：下图大括号部分包含2份1/2厚度值长度，故恰好为当前厚度），采用GL_TRIANGLE_STRIP的方式绘制三角序列，因此需要2个二次贝塞尔曲线点来确定一个含有2个三角形的矩形段。</p>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/25/1366864689_3366.png" alt="id4" /></p>
+
+<p>这个例子，就是用二次贝塞尔曲线和速度控制笔刷厚度的方法画出来的签名，自然多了吧。</p>
+
+<p><img src="http://img.my.csdn.net/uploads/201304/25/1366864895_3168.png" alt="id5" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac使用技巧]]></title>
+    <link href="http://swplzj.github.io/blog/2015/02/12/at-macshi-yong-ji-qiao/"/>
+    <updated>2015-02-12T19:25:20+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/02/12/at-macshi-yong-ji-qiao</id>
+    <content type="html"><![CDATA[<h5>1. [技巧]终端模式下用Finder打开当前目录</h5>
+
+<p>方法如下</p>
+
+<p>open .</p>
+
+<h5>2.强制退出应用</h5>
+
+<p>如果您无法从无响应的 app 进行切换，请按住 Command-Option-Shift-Esc 键三秒钟，以强制其退出。该组合键将命令 OS X 强制退出最前面的 app。</p>
+
+<!--more-->
+
+
+<h5>3.如何为 Mac OS X 启用 Root 账户?</h5>
+
+<p>尽管 Apple 不推荐开启 Mac OS X 的 Root 账户，但有时会遇到一些操作上的麻烦不得不开启 Root 账户来解决。那么怎么开启 Mac OS X 的 Root 账户呢？</p>
+
+<h6>开启 Root 账户</h6>
+
+<p>打开“系统偏好设置”，进入“用户与群组”面板，记得把面板左下角的小锁打开，然后选择面板里的“登录选项”。在面板右边你会看到“网络账户服务器”，点击它旁边的“加入…”按钮，再点击弹出的窗口中“打开目录实用工具”。这时会弹出一个新窗口，把左下角的小锁打开，然后点击菜单栏上的“编辑” – “启用 Root 用户”，在弹出的窗口中设置 Root 的密码就可以了。</p>
+
+<h6>如何为 OS X 启用 Root 账户?</h6>
+
+<p>上面的步骤有些啰嗦，你可以在 Finder 中按组合键“shift + command + G”直接前往文件夹 /System/Library/CoreServices，在里面找到“目录实用工具”来开启 Root 账户。</p>
+
+<p>启用之后，你可以注销系统然后用刚刚开启的 Root 帐号登录 Mac OS X 了。</p>
+
+<h6>关闭 Root 账户</h6>
+
+<p>Root 账户的权限系统中最高级别了，在我们日常生活中几乎用不到，为了避免发生各种安全问题，MacGG建议在用 Root 账户解决完问题后关闭 Root 账户。关闭的步骤跟上面差不多，只是在打开“目录实用工具”后，点击“编辑”菜单里的“停用 Root 用户”即可。</p>
+
+<h5>4.同时按住 control + command + 电源键，这样也会强制关闭电脑，但好处是不会损坏系统文件。</h5>
+
+<h5>5.[Mac]如何让 OS X 定时截图？</h5>
+
+<pre><code>screencapture -t png -T 10 ~/Desktop/screenshot01.png
+</code></pre>
+
+<h5>6.[Mac]如何删除Mac系统里面的所有 DS_Store 文件呢？</h5>
+
+<p>DS_Store (英文全称 Desktop Services Store)是一种由苹果公司的Mac OS X操作系统所创造的隐藏文件，目的在于存贮文件夹的自定义属性，例如文件们的图标位置或者是背景色的选择等。</p>
+
+<p>如何删除Mac系统里面的所有 DS_Store 文件呢？</p>
+
+<p>启动“终端”，再/应用程序/工具文件夹中。
+输入以下命令：</p>
+
+<pre><code>sudo find / -name “.DS_Store” -depth -exec rm {} \;
+</code></pre>
+
+<p>接着输入你的管理员密码，这时你的 .DS_Store 全都没了。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IOS5以上：设置控件全局显示样式《APPEARANCE PROXY》]]></title>
     <link href="http://swplzj.github.io/blog/2015/02/12/at-ios5yi-shang-:she-zhi-kong-jian-quan-ju-xian-shi-yang-shi-%3C%3C-appearance-proxy/"/>
     <updated>2015-02-12T18:34:41+08:00</updated>
     <id>http://swplzj.github.io/blog/2015/02/12/at-ios5yi-shang-:she-zhi-kong-jian-quan-ju-xian-shi-yang-shi-<<-appearance-proxy</id>
@@ -99,10 +429,11 @@
 <li><p>(void)setBackgroundImage:(UIImage *)backgroundImage forToolbarPosition:(UIToolbarPosition)topOrBottom barMetrics:(UIBarMetrics)barMetrics NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;</p></li>
 <li><p>(UIImage *)backgroundImageForToolbarPosition:(UIToolbarPosition)topOrBottom barMetrics:(UIBarMetrics)barMetrics NS_AVAILABLE_IOS(5_0) UI_APPEARANCE_SELECTOR;</p></li>
 <li><p>(void)setShadowImage:(UIImage *)shadowImage forToolbarPosition:(UIToolbarPosition)topOrBottom NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR;</p></li>
-<li><p>(UIImage *)shadowImageForToolbarPosition:(UIToolbarPosition)topOrBottom NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR;
-&#8220;`</p></li>
+<li><p>(UIImage *)shadowImageForToolbarPosition:(UIToolbarPosition)topOrBottom NS_AVAILABLE_IOS(6_0) UI_APPEARANCE_SELECTOR;</p></li>
 </ul>
 
+
+<p>&#8220;`</p>
 
 <p><a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UIAppearance_Protocol/Reference/Reference.html">了解更多请点击访问</a></p>
 ]]></content>
@@ -1594,6 +1925,9 @@ is a contextual keyword that is only permitted in the result type of an Objectiv
 
 <p>作为CMM神话崩溃后被引入的一套新的软件开发模式，这几年来被广泛引起关注，并被寄予厚望。敏捷开发在其他业界的应用是否理想不得而知，但以下总结了我所在公司的敏捷开发试验，希望可以达到管中窥豹的目的。</p>
 
+<!--more-->
+
+
 <h5>敏捷开发宣言——</h5>
 
 <p>个体和交互 胜过 过程和工具
@@ -2679,9 +3013,9 @@ lockBeforeDate:，在指定的date之前暂时阻塞线程（如果没有获取�
   
   <entry>
     <title type="html"><![CDATA[iOS面试题-干货]]></title>
-    <link href="http://swplzj.github.io/blog/2014/09/17/second/"/>
+    <link href="http://swplzj.github.io/blog/2014/09/17/ios-mian-shi-ti/"/>
     <updated>2014-09-17T17:29:15+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/09/17/second</id>
+    <id>http://swplzj.github.io/blog/2014/09/17/ios-mian-shi-ti</id>
     <content type="html"><![CDATA[<p>很全的面试题，有百度腾讯各大公司的真题，快来看看吧。</p>
 
 <h4>Part 1</h4>
