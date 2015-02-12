@@ -9,7 +9,8 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。 搭建博客参考的文章 官方参考文档 创建一篇博文 rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/ &hellip;">
+  <meta name="description" content="终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。 搭建博客参考的文章 官方参考文档 创建一篇博文 1
+rake new_post["post title"] #octopress 将在工作目录的 source/_post/目录下生成相应的 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,71 +84,115 @@
 
 <h4>创建一篇博文</h4>
 
-<p>rake new_post[&ldquo;post title&rdquo;] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["post title"] #octopress 将在工作目录的 source/_post/目录下生成相应的 markdown 文件。然后可以使用 mou 工具去修改编辑内容。</span></code></pre></td></tr></table></div></figure>
+
 
 <h4>生成预览</h4>
 
-<p>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake preview #可以通过 localhost:4000 在本机实时观察最新的编辑效果。</span></code></pre></td></tr></table></div></figure>
+
 
 <h4>在线发布</h4>
 
-<p>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake deploy #完成编辑后，可以将最新的内容部署到 github 上去。成功后，即可在线访问。</span></code></pre></td></tr></table></div></figure>
+
 
 <h4>向 github 提交源文件更新</h4>
 
-<p>git add -A
-git commit -m :&ldquo;提交内容&rdquo;
-git push</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git add -A
+</span><span class='line'>git commit -m :"提交内容"
+</span><span class='line'>git push</span></code></pre></td></tr></table></div></figure>
 
-<p>rake setup_github_pages
-生成静态站点：rake generate
-rake deploy</p>
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages
+</span><span class='line'>生成静态站点：rake generate
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
 
 <h4>提交源文件，即source分支</h4>
 
-<p>git add .
-git commit -m &lsquo;your message&rsquo;
-git push origin source</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git add .
+</span><span class='line'>git commit -m 'your message'
+</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
+
 
 <h4>克隆主题</h4>
 
-<p>$ cd Octopress<br/>
-$ git clone <a href="https://github.com/sevenadrian/foxslide">https://github.com/sevenadrian/foxslide</a> .themes/foxslide<br/>
-$ rake install[&lsquo;foxslide&rsquo;]<br/>
-$ rake generate<br/>
-$ rake deploy</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd Octopress  
+</span><span class='line'>git clone https://github.com/sevenadrian/foxslide .themes/foxslide  
+</span><span class='line'>rake install['foxslide']  
+</span><span class='line'>rake generate  
+</span><span class='line'>rake deploy 
+</span><span class='line'>cd octopress
+</span><span class='line'>git submodule add GIT_URL .themes/THEME_NAME
+</span><span class='line'>rake install['THEME_NAME']
+</span><span class='line'>rake generate</span></code></pre></td></tr></table></div></figure>
 
-<p>$ cd octopress
-$ git submodule add GIT_URL .themes/THEME_NAME
-$ rake install[&lsquo;THEME_NAME&rsquo;]
-$ rake generate</p>
 
 <h4>拉取master分支</h4>
 
-<p>进入_deploy目录，运行如下命令
-git pull origin master</p>
+<p>进入_deploy目录，运行如下命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git pull origin master  </span></code></pre></td></tr></table></div></figure>
+
 
 <h4>在开始处理博客事务之前，需要同步github仓库的数据</h4>
 
-<p>cd Octopress/<br/>
-git pull origin source<br/>
-cd _deploy</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd Octopress/  
+</span><span class='line'>git pull origin source  
+</span><span class='line'>cd _deploy  
+</span><span class='line'>git commit --amend 
+</span><span class='line'>git rebase.</span></code></pre></td></tr></table></div></figure>
 
-<p>git commit &ndash;amend
-git rebase.</p>
 
 <h5>因为你是从octopress github上clone的，所以你需要把origin这个branch换一个名字</h5>
 
-<p>git remote rename origin octopress<br/>
-git remote add origin (your github url)</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote rename origin octopress  
+</span><span class='line'>git remote add origin (your github url)  </span></code></pre></td></tr></table></div></figure>
+
 
 <h4>把你的github branch作为默认的branch</h4>
 
-<p>git config branch.master.remote origin</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git config branch.master.remote origin  </span></code></pre></td></tr></table></div></figure>
+
 
 <h4>把你的octopress导入到github上去</h4>
 
-<p>git push -u origin master</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git push -u origin master  </span></code></pre></td></tr></table></div></figure>
+
 
 <h6>添加继续阅读</h6>
 
