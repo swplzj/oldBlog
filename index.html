@@ -11,7 +11,10 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="Waiting for Upload (Yellow) Appears when you’ve completed entering your metadata, however, you have not finished uploading your binary or have chosen &hellip;">
+  <meta name="description" content="本文将轻度解密Xcode build日志，还原iOS程序build的过程。
+另外将介绍如何对build过程的控制，进而定制出自己希望的流程，
+例如通过Build phase的定制，给app icon打水印(包括版本号和日期)。
+通过对工程文件的解读，为你揭开工程文件(.pbxproj)与 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -59,6 +62,494 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ioscheng-xu-de-buildguo-cheng/">iOS程序的Build过程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T15:07:52+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本文将轻度解密Xcode build日志，还原iOS程序build的过程。
+另外将介绍如何对build过程的控制，进而定制出自己希望的流程，
+例如通过Build phase的定制，给app icon打水印(包括版本号和日期)。
+通过对工程文件的解读，为你揭开工程文件(.pbxproj)与
+build settings的关系。这对于解决工程文件的merge冲突非常有帮助。
+PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
+某个平台的build过程，那么同样的原理也适用于别的平台。
+可以说换汤不换药，本质是一样的。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ioscheng-xu-de-buildguo-cheng/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ioszhong-xiao-xi-de-chuan-di-ji-zhi/">iOS中消息的传递机制</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T14:43:49+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>目录</h4>
+
+<p><a href="#01">  可用的机制     </a></p>
+
+<p><a href="#02">  做出正确的选择   </a></p>
+
+<p><a href="#03">  Framework示例 </a></p>
+
+<p><a href="#04">  小结              </a></p>
+
+<p>每个应用程序或多或少，都由一些松耦合的对象构成，这些对象彼此之间要想很好的完成任务，就需要进行消息传递。本文将介绍所有可用的消息传递机制，并通过示例来介绍这些机制在苹果的Framework中如何使用，同时，还介绍了一些最佳实践建议，告诉你什么时机该选择使用什么机制。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ioszhong-xiao-xi-de-chuan-di-ji-zhi/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/macxi-tong-zhong-duan-ming-ling-xing-she-zhi-zi-dong-guan-ji-slash-zhong-qi-slash-shui-mian/">Mac系统终端命令行设置自动关机/重启/睡眠</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T14:33:03+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>mac设定定时关机/重启/睡眠，可以用终端命令来解决</h3>
+
+<p>命令的主体主要是 Shutdown，h/r/s 分别代表关机/重启/睡眠，然后在后面加上执行时间(yymmddhhmm)即可。</p>
+
+<h6>设定2013年11月4日14:10分关机：</h6>
+
+<pre><code>sudo shutdown -h 1311041410
+</code></pre>
+
+<p>也可以</p>
+
+<pre><code>sudo shutdown -h 14:10
+</code></pre>
+
+<h6>设定2013年11月4日14:10分重启：</h6>
+
+<pre><code>    sudo shutdown -r 1311041410
+</code></pre>
+
+<p>也可以</p>
+
+<pre><code>sudo reboot 
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>sudo shutdown -r now
+</code></pre>
+
+<h6>设定2013年11月4日14:10分睡眠：</h6>
+
+<pre><code>sudo shutdown -s 1311041410
+</code></pre>
+
+<h6>如果想要立即关机/重启/睡眠，可以执行命令：</h6>
+
+<pre><code>sudo halt
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>sudo shutdown -h now
+</code></pre>
+
+<p>now也可以适用于重启和睡眠。</p>
+
+<h3>临时取消定时关机/睡眠/重启的方法也很简单</h3>
+
+<p>我们在终端中执行了关机的命令，终端中会显示如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>swplzj:~ issuser$ sudo shutdown -s 1311041410
+</span><span class='line'>Shutdown at Mon Nov  4 14:10:00 2013.
+</span><span class='line'>shutdown: [pid 6609]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注意上面的 pid 6609，这是指当前运行的这个 shutdown 命令的进程号，如果要取消关机，只需要停止这个进程的运行就可以了。</p>
+
+<p>命令为：</p>
+
+<pre><code>sudo kill 6609
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/mac-ji-suan-dai-ma-de-zong-xing-shu/">Mac 计算代码的总行数</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T14:31:37+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>计算代码的行数</p>
+
+<p>在终端上的命令，作用：找到项目的根目录，可以计算出代码的行数</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.m" -or -name "*.h" |xargs grep -v "^$"|wc -l
+</span><span class='line'>grep -v "^$"是去掉空行
+</span><span class='line'>find . "(" -name "*.m" -or -name "*.strings" -or -name "*.h" ")" -print | xargs wc -l</span></code></pre></td></tr></table></div></figure>
+
+
+<p>赶快试一试吧，看看你的代码量是多少！</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-maczhong-duan-xia-de-sqlyu-ju/">iOS mac终端下的SQL语句</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T14:18:47+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我们都知道数据库的创建可以借助图形化的数据库工具软件，但也可以在Mac终端下来直接使用代码创建。
+下面介绍怎样建立数据库、建立资料表、建立索引、数据的增、删、改、查以及sqlite3命令列选项等。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ios-maczhong-duan-xia-de-sqlyu-ju/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-7-jiao-cheng-:qian-xi-text-kit/">iOS 7 教程：浅析Text Kit</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T12:00:06+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Text Kit是iOS 7中引入的一个新功能，非常值得开发者使用，下面先看看本文的目录结构：</p>
+
+<p><a href="#08">      1. 什么是Text Kit    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#01">      2. Text Kit架构   </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#02">      3. Text Kit特点   </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#03">      4. Text Kit功能概述 </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#04">      5. Text Kit中重要的一些对象 </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#05">      6. Text Kit示例   </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#06">      7. 小结   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p><a href="#07">      8. 推荐Text Kit学习资源   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ios-7-jiao-cheng-:qian-xi-text-kit/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/xcode-5zhong-de-interface-buildergeng-you-li-yu-tuan-dui-xie-zuo-kai-fa/">Xcode 5中的Interface Builder更有利于团队协作开发</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T11:30:59+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>小引</h4>
+
+<p>在iOS开发中，开发者有各种理由选择用代码来构建界面，其中最多的理由就是Interface Builder绘制的代码不利于团队间协作(代码的可读性和合并)。虽然Interface Builder来绘制界面有诸多优势，但是由于致命的缺陷，许多开发团队不得不远离它，当然也有一些开发团队为了在协同开发时也使用IB来绘制界面，他们尽量确保同一时期只由一个人来操作某个xib文件，以此避免提交代码的时候需要合并xib文件。然而，在Xcode 5中，苹果的开发团队已经对xib文件格式做了大量的简化工作。本文就来简要的看看相关内容。</p>
+
+<p>注：本文译自<a href="http://nilsou.com/blog/2013/08/07/xcode-5-finally-makes-interface-builder-a-viable-option-for-teams/">Xcode 5 Finally Makes Interface Builder a Viable Option for Teams</a></p>
+
+<h4>目录</h4>
+
+<ul>
+<li>Xcode 4中xib文件的格式</li>
+<li>Xcode 5中xib文件的格式</li>
+<li>小结</li>
+</ul>
+
+
+<p>上周我将代码merge到我的working branch时，注意到以前没曾见过的提示：</p>
+
+<p><img src="http://beyondvincent.com/images/2013/09/1.png" alt="id1" /></p>
+
+<p>Git会自动合并xib文件！我在想，Xcode 5中肯定对xib文件的格式做了修改，所以我准备深入研究一下。
+原来由Xcode 5生成的xib文件是一种全新的格式。看起来苹果这次对xib文件格式的变更将有助于开发团队开始考虑使用IB来绘制界面。</p>
+
+<h5>* Xcode 4中xib文件的格式</h5>
+
+<p>为了演示xib文件格式在Xcode 4和Xcode 5中的差异，我首先在Xcode 4中创建了一个新的xib文件，并添加了一些view进去：一个UIScrollView，该scrollview中包含一些UIButton、UILable和TextView等。</p>
+
+<p><img src="http://beyondvincent.com/images/2013/09/2.png" title="xib" alt="id2" /></p>
+
+<p>然后我在工程导航窗口中右键单击该文件，并选择<code>Open As &gt; Source Code</code>。下面的链接中是看到的内容：
+<a href="https://gist.github.com/nilsou/6057457">Xcode 4生成的.xib文件</a>(需要点击“File suppressed. Click to show.”)</p>
+
+<p>可以看到，这么简单的一个view居然有1108行代码！这太多了。</p>
+
+<p>对开发者来说它的可读性非常的糟糕。这是开发者为什么不喜欢xib文件的主要原因(由此放弃使用interface builder)。</p>
+
+<p>更糟糕的是这个xib文件的格式还具有不确定性。也就是说如果我在Interface Builder创建相同的UI界面，但是我们看到的文件内容并不是相同的。这就导致xib文件的合并非常的困难，甚至不可能进行合并。这事开发者不使用xib文件的另外一个重要原因。</p>
+
+<h5>* Xcode 5中xib文件的格式</h5>
+
+<p>接着，我在Xcode 5中打开同一个工程。当在Xcode 5中打开用Xcode 4创建的xib文件时，会提示将文件升级到新的格式。这里需要注意的是升级之后的文件只能在Xcode 5中打开，这种新格式的文件不能在老版本中的Xcode中打开。所以，如果是团队协作开发，那么升级的时候，需要确保所有的开发者都使用Xcode 5。</p>
+
+<p><img src="http://beyondvincent.com/images/2013/09/3.png" alt="id3" /></p>
+
+<p>我点击Upgrade，然后再次打开xib文件的source code，看看有什么变化。如下链接中所示：</p>
+
+<p><a href="https://gist.github.com/nilsou/6057474">Xcode 5生成的.xib文件</a>(需要点击“File suppressed. Click to show.”)</p>
+
+<p><code>133行</code>！这与Xcode 4中创建的xib文件相差约10倍。可见苹果的开发团队已经对xib文件格式做了大量的简化。</p>
+
+<p>再看看里面的具体内容，可以看出它的可读性也加强了。xib文件中的源代码现在也能够反应出view的层次(Interface Builder左边看到的内容结构！)，等熟悉之后，开发者可以直接对这个xml代码进行编写。
+最重要的一点，可以看出Xcode 5生成的xib文件内容源码位置是确定的。这非常利于文件的合并。</p>
+
+<h4>小结</h4>
+
+<p>这种新的格式带来的最大好处不仅仅是增强开发者对xib文件的可读性，另外在大多数情况下，git还可以对xib文件进行自动合并，不用开发者手动进行。</p>
+
+<p>现在如果还有开发者告诉你他不想用xib文件，那么请把这篇文章发给他看看吧，我相信已经没有太多理由不使用xib文件了。</p>
+
+<p>其实在Xcode 5中不仅对Interface Builder进行了改善，还有其它一些功能也做了改进，例如自动布局约束的设置已经没有以前痛苦了。</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/os-xchang-yong-ming-ling-xing-ji-qiao/">OS X常用命令行技巧</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T10:28:13+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h1>OS X常用命令行技巧</h1>
+
+<h4>用“caffeinate”来停用屏幕保护和休眠</h4>
+
+<p>山狮（Mac OS X 10.8）引入的新功能caffeinate，它完全就是命令行版本的咖啡因（Caffeine），可以让你电脑保持精神。运行方法：</p>
+
+<p>caffeinate -t 3600</p>
+
+<p>其中， -t用来指定时间，单位是秒，所以上面的例子就是一个小时。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/os-xchang-yong-ming-ling-xing-ji-qiao/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -138,360 +629,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/2015/02/12/macban-ben-cornerstonede-wu-xian-qi-po-jie-fang-fa/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/12/zai-iosshang-hui-zhi-zi-ran-de-qian-ming/">在iOS上绘制自然的签名</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-12T19:32:25+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>这里有一篇很棒的文章写如何在Android上获取流畅的签名：<a href="http://corner.squareup.com/2012/07/smoother-signatures.html">Smoother Signatures</a>，但是我没有找到一篇是写在iOS上如何实现。那么，究竟怎么做才能在iOS设备上获取用户的签名呢？</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/02/12/zai-iosshang-hui-zhi-zi-ran-de-qian-ming/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/12/at-macshi-yong-ji-qiao/">Mac使用技巧</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-12T19:25:20+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h5>1. [技巧]终端模式下用Finder打开当前目录</h5>
-
-<p>方法如下</p>
-
-<p>open .</p>
-
-<h5>2.强制退出应用</h5>
-
-<p>如果您无法从无响应的 app 进行切换，请按住 Command-Option-Shift-Esc 键三秒钟，以强制其退出。该组合键将命令 OS X 强制退出最前面的 app。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/02/12/at-macshi-yong-ji-qiao/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/12/at-ios5yi-shang-:she-zhi-kong-jian-quan-ju-xian-shi-yang-shi-%3C%3C-appearance-proxy/">IOS5以上：设置控件全局显示样式《APPEARANCE PROXY》</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-12T18:34:41+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Appearance是Apple在iOS5.0上加的一个协议，它让程序员可以很轻松地改变某控件的全局样式（背景）</p>
-
-<pre><code> @selector(appearance)
-</code></pre>
-
-<p>支持UIAppearance协议的类可以访问appearance selector ,它为receiver返回appearance proxy，我们可以给proxy发一些消息，诸如setTintColor:等</p>
-
-<p>但是它并不是支持所有的UI类。下面列出它支持的类</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/02/12/at-ios5yi-shang-:she-zhi-kong-jian-quan-ju-xian-shi-yang-shi-%3C%3C-appearance-proxy/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/12/14/you-xiu-kai-yuan-xiang-mu-facebook-paper-dong-hua-yin-qing-pop/">优秀开源项目：FACEBOOK PAPER动画引擎 – POP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-12-14T19:02:27+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="http://cc.cocimg.com/cms/uploads/allimg/140429/4196_140429142234_1.gif" alt="id1" /></p>
-
-<p>Pop是一个适用于iOS和OS X平台的可扩展动画引擎，是一个成熟的经过多重测试的，可实现Facebook Paper中的所有动画和过渡效果。除了基本的静态动画，Pop还支持spring和decay动画，有助于打造一个逼真的，基于物理的交互。你可以通过Pop的API把Pop快速集成到现有的Objective-C代码库中，并在任何对象上实现动画的任何属性。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/12/14/you-xiu-kai-yuan-xiang-mu-facebook-paper-dong-hua-yin-qing-pop/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/12/14/shi-yong-shen-qi-de-ponydebugger-tiao-shi-ios-ying-yong/">使用神奇的PONYDEBUGGER调试iOS应用</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-12-14T17:30:40+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>前言</h3>
-
-<p>Debug算是开发者的基本技能之一吧，对于iOS开发者而言，可能会遇到如下一些debug需求：</p>
-
-<p>调试网络请求问题
-调试一个层次结构复杂的用户界面
-查看应用内Core Data数据变化
-虽然你可以通过NSLog日志，打断点，抑或LLDB的调试命令等一些常见手段来解决以上问题，但这些方式始终不够直观，效率也不高，特别是对于调试UI这个需求。要提高效率，我们可以使用一些第三方的调试工具，比如本文要介绍的PonyDebugger。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/12/14/shi-yong-shen-qi-de-ponydebugger-tiao-shi-ios-ying-yong/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/21/li-jie-objective-c-runtime/">理解 OBJECTIVE-C RUNTIME</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-21T21:34:12+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>当人们初学 Cocoa/Objective-C 时，Objective-C Runtime 是被忽略的特性之一。原因是 Objective-C（这门语言）很容易在几小时内就熟悉，新学 Cocoa 的人花费他们大部分的时间学习 Cocoa 框架和适应它是如何工作的。然而每个人至少应该知道一些 runtime 的工作细节，需要比知道编译器会把 [target doMethodWith:var1]; 转换为 objc_msgSend(target,@selector(doMethodWith:),var1); 更深入一些。知道 Objective-C 正在做的会让你更深入的理解 Objective-C 和你正在运行的 app。我认为 Mac/iPhone 的开发者不管你现在是什么水平，都会有收获的。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/21/li-jie-objective-c-runtime/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/21/instancetype-yu-id-de-qu-bie/">INSTANCETYPE 与 ID 的区别。</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-21T18:31:05+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>新的LLVM编译器为我们带来了ARC, Object Literal and Scripting, Auto Synthesis等特性，同时也引入了instancetype关键字。instancetype用来表示Related Result Types(相关返回类型)，那么它与id有什么不同呢？</p>
-
-<p>根据Cocoa的命名惯例，init, alloc这类的方法，如果以id作为返回类型，会返回类本身的类型。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/21/instancetype-yu-id-de-qu-bie/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/21/yi-dong-app-jia-gou-she-ji/">移动App架构设计</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-21T16:47:01+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Native app的开发相比传统的项目迭代周期要短很多, 需求的变化也频繁一些, 在开发的不同生命周期里采用不同的架构模式可以有效的节约开发时间, 提高开发效率, 这篇文章介绍几种常用的架构模式:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/21/yi-dong-app-jia-gou-she-ji/">Read on &rarr;</a>
     </footer>
   
 

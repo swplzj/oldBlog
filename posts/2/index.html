@@ -11,7 +11,7 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="Agile——敏捷开发 作为CMM神话崩溃后被引入的一套新的软件开发模式，这几年来被广泛引起关注，并被寄予厚望。敏捷开发在其他业界的应用是否理想不得而知，但以下总结了我所在公司的敏捷开发试验，希望可以达到管中窥豹的目的。 ">
+  <meta name="description" content="这里有一篇很棒的文章写如何在Android上获取流畅的签名：Smoother Signatures，但是我没有找到一篇是写在iOS上如何实现。那么，究竟怎么做才能在iOS设备上获取用户的签名呢？ ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -59,6 +59,360 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/12/zai-iosshang-hui-zhi-zi-ran-de-qian-ming/">在iOS上绘制自然的签名</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-12T19:32:25+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>这里有一篇很棒的文章写如何在Android上获取流畅的签名：<a href="http://corner.squareup.com/2012/07/smoother-signatures.html">Smoother Signatures</a>，但是我没有找到一篇是写在iOS上如何实现。那么，究竟怎么做才能在iOS设备上获取用户的签名呢？</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/12/zai-iosshang-hui-zhi-zi-ran-de-qian-ming/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/12/at-macshi-yong-ji-qiao/">Mac使用技巧</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-12T19:25:20+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h5>1. [技巧]终端模式下用Finder打开当前目录</h5>
+
+<p>方法如下</p>
+
+<p>open .</p>
+
+<h5>2.强制退出应用</h5>
+
+<p>如果您无法从无响应的 app 进行切换，请按住 Command-Option-Shift-Esc 键三秒钟，以强制其退出。该组合键将命令 OS X 强制退出最前面的 app。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/12/at-macshi-yong-ji-qiao/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/12/at-ios5yi-shang-:she-zhi-kong-jian-quan-ju-xian-shi-yang-shi-%3C%3C-appearance-proxy/">IOS5以上：设置控件全局显示样式《APPEARANCE PROXY》</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-12T18:34:41+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Appearance是Apple在iOS5.0上加的一个协议，它让程序员可以很轻松地改变某控件的全局样式（背景）</p>
+
+<pre><code> @selector(appearance)
+</code></pre>
+
+<p>支持UIAppearance协议的类可以访问appearance selector ,它为receiver返回appearance proxy，我们可以给proxy发一些消息，诸如setTintColor:等</p>
+
+<p>但是它并不是支持所有的UI类。下面列出它支持的类</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/12/at-ios5yi-shang-:she-zhi-kong-jian-quan-ju-xian-shi-yang-shi-%3C%3C-appearance-proxy/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/14/you-xiu-kai-yuan-xiang-mu-facebook-paper-dong-hua-yin-qing-pop/">优秀开源项目：FACEBOOK PAPER动画引擎 – POP</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-14T19:02:27+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="http://cc.cocimg.com/cms/uploads/allimg/140429/4196_140429142234_1.gif" alt="id1" /></p>
+
+<p>Pop是一个适用于iOS和OS X平台的可扩展动画引擎，是一个成熟的经过多重测试的，可实现Facebook Paper中的所有动画和过渡效果。除了基本的静态动画，Pop还支持spring和decay动画，有助于打造一个逼真的，基于物理的交互。你可以通过Pop的API把Pop快速集成到现有的Objective-C代码库中，并在任何对象上实现动画的任何属性。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/12/14/you-xiu-kai-yuan-xiang-mu-facebook-paper-dong-hua-yin-qing-pop/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/14/shi-yong-shen-qi-de-ponydebugger-tiao-shi-ios-ying-yong/">使用神奇的PONYDEBUGGER调试iOS应用</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-12-14T17:30:40+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>前言</h3>
+
+<p>Debug算是开发者的基本技能之一吧，对于iOS开发者而言，可能会遇到如下一些debug需求：</p>
+
+<p>调试网络请求问题
+调试一个层次结构复杂的用户界面
+查看应用内Core Data数据变化
+虽然你可以通过NSLog日志，打断点，抑或LLDB的调试命令等一些常见手段来解决以上问题，但这些方式始终不够直观，效率也不高，特别是对于调试UI这个需求。要提高效率，我们可以使用一些第三方的调试工具，比如本文要介绍的PonyDebugger。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/12/14/shi-yong-shen-qi-de-ponydebugger-tiao-shi-ios-ying-yong/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/21/li-jie-objective-c-runtime/">理解 OBJECTIVE-C RUNTIME</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-21T21:34:12+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>当人们初学 Cocoa/Objective-C 时，Objective-C Runtime 是被忽略的特性之一。原因是 Objective-C（这门语言）很容易在几小时内就熟悉，新学 Cocoa 的人花费他们大部分的时间学习 Cocoa 框架和适应它是如何工作的。然而每个人至少应该知道一些 runtime 的工作细节，需要比知道编译器会把 [target doMethodWith:var1]; 转换为 objc_msgSend(target,@selector(doMethodWith:),var1); 更深入一些。知道 Objective-C 正在做的会让你更深入的理解 Objective-C 和你正在运行的 app。我认为 Mac/iPhone 的开发者不管你现在是什么水平，都会有收获的。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/21/li-jie-objective-c-runtime/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/21/instancetype-yu-id-de-qu-bie/">INSTANCETYPE 与 ID 的区别。</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-21T18:31:05+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>新的LLVM编译器为我们带来了ARC, Object Literal and Scripting, Auto Synthesis等特性，同时也引入了instancetype关键字。instancetype用来表示Related Result Types(相关返回类型)，那么它与id有什么不同呢？</p>
+
+<p>根据Cocoa的命名惯例，init, alloc这类的方法，如果以id作为返回类型，会返回类本身的类型。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/21/instancetype-yu-id-de-qu-bie/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/09/21/yi-dong-app-jia-gou-she-ji/">移动App架构设计</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-21T16:47:01+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Native app的开发相比传统的项目迭代周期要短很多, 需求的变化也频繁一些, 在开发的不同生命周期里采用不同的架构模式可以有效的节约开发时间, 提高开发效率, 这篇文章介绍几种常用的架构模式:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/09/21/yi-dong-app-jia-gou-she-ji/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -146,237 +500,18 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/17/ios-duo-xian-cheng-cao-zuo/">iOS多线程操作：锁 互斥 同步</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-17T19:03:45+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>在iOS中有几种方法来解决多线程访问同一个内存地址的互斥同步问题，本文简单介绍：</p>
-
-<h5>方法一，@synchronized(id anObject),(最简单的方法)</h5>
-
-<p>会自动对参数对象加锁，保证临界区内的代码线程安全</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/17/ios-duo-xian-cheng-cao-zuo/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/17/look-up/">《抬起头吧》</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-17T18:54:32+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h4>《Look up》-《抬起头吧》很有感触</h4>
-
-<p>我有好几百位手机好友，但我仍然常常感到孤独；我每天跟他们聊天，但是好像他们并不了解真正的我。我的疑问来自于人与人之间的相处方式，我究竟是想看着他们的眼睛，还是手机上的昵称？直到有一天我发现，所谓的社交网络，并不完全是我们看到的那样。当我们打开电脑或者手机，其实也就关上了彼此心灵沟通的大门。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/17/look-up/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/17/ios-mian-shi-ti/">iOS面试题-干货</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-17T17:29:15+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>很全的面试题，有百度腾讯各大公司的真题，快来看看吧。</p>
-
-<h4>Part 1</h4>
-
-<p>1、说说OC内存管理；</p>
-
-<p>2、ASIRequest是什么；</p>
-
-<p>3、怎么输出json字符串；</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/17/ios-mian-shi-ti/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/17/da-jian-bo-ke-cao-zuo/">搭建博客操作</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-17T14:26:01+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>终于搭建好自己的博客了，搭建过程中遇到好多问题，参考了好多文章，创建博客所用到的操作记录下来留作纪念。</p>
-
-<p><a href="http://blog.segmentfault.com/yaashion_xiang/1190000000364677">搭建博客参考的文章</a></p>
-
-<p><a href="https://github.com/imathis/octopress/wiki">官方参考文档</a></p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/17/da-jian-bo-ke-cao-zuo/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/21/xcode-lldb-ming-ling-jian-dan-shi-yong/">XCODE LLDB命令的简单实用说明</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-21T16:47:01+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>po（print object）是LLDB的一个命令，其主要功能是输出objective-c中对象（objects）的信息，与之相似的另外一个命令是 p（print），其主要功能是输出原生类型（boolean、integer、float、etc）的信息。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/07/21/xcode-lldb-ming-ling-jian-dan-shi-yong/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
 
   <div class="pagination">
    <nav id="pagenavi">
 
     
+        <a href="/index.html" class="prev">Home</a>
+      
 
        
       
+      
+        <a href="/posts/3" class="next">Older</a>
       
 
     </nav>
