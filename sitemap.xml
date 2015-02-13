@@ -3,6 +3,110 @@
   
   
   <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/macxia-da-jian-svnhuan-jing/</loc>
+    
+    <lastmod>2015-02-13T17:35:14+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/nstimerde-yong-fa-xia-zai-jin-du-xian-shi/</loc>
+    
+    <lastmod>2015-02-13T17:31:16+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-coretextlei-ku-de-xiang-xi-jie-shao/</loc>
+    
+    <lastmod>2015-02-13T17:25:08+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-ying-yong-cheng-xu-mu-lu-jie-gou/</loc>
+    
+    <lastmod>2015-02-13T17:22:19+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-si/</loc>
+    
+    <lastmod>2015-02-13T17:11:36+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/xcodezhong-xi-tong-ku-wen-jian-libz-dot-dylibde-zuo-yong/</loc>
+    
+    <lastmod>2015-02-13T17:08:21+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-(san-)/</loc>
+    
+    <lastmod>2015-02-13T17:03:35+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-(er-)/</loc>
+    
+    <lastmod>2015-02-13T16:59:06+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-%5B%3F%5D/</loc>
+    
+    <lastmod>2015-02-13T16:46:33+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/ios-nsinvocationde-xue-xi/</loc>
+    
+    <lastmod>2015-02-13T16:38:21+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/jiu-bu-que-ding-ni-de-ren-sheng-mu-biao-he-zhi-ding-da-dao-mu-biao-de-ji-hua/</loc>
+    
+    <lastmod>2015-02-13T16:34:03+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/er-wei-ma-de-sheng-cheng-xi-jie-he-yuan-li/</loc>
+    
+    <lastmod>2015-02-13T15:37:29+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://swplzj.github.io/blog/2015/02/13/bu-yao-rang-zuo-tian-shi-bai-de-ni-ji-xu-fu-shi-jin-tian-de-zi-ji/</loc>
+    
+    <lastmod>2015-02-13T15:35:24+08:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://swplzj.github.io/blog/2015/02/13/ioscheng-xu-de-buildguo-cheng/</loc>
     
     <lastmod>2015-02-13T15:07:52+08:00</lastmod>
@@ -213,21 +317,21 @@
   
   <url>
     <loc>http://swplzj.github.io/blog/archives/</loc>
-    <lastmod>2015-02-13T15:26:16+08:00</lastmod>
+    <lastmod>2015-02-13T17:42:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://swplzj.github.io/</loc>
-    <lastmod>2015-02-13T15:26:16+08:00</lastmod>
+    <lastmod>2015-02-13T17:42:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://swplzj.github.io/about/</loc>
-    <lastmod>2015-02-13T15:26:16+08:00</lastmod>
+    <lastmod>2015-02-13T17:42:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
