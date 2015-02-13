@@ -11,10 +11,7 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="本文将轻度解密Xcode build日志，还原iOS程序build的过程。
-另外将介绍如何对build过程的控制，进而定制出自己希望的流程，
-例如通过Build phase的定制，给app icon打水印(包括版本号和日期)。
-通过对工程文件的解读，为你揭开工程文件(.pbxproj)与 &hellip;">
+  <meta name="description" content="在Windows环境中，我们一般使用TortoiseSVN来搭建svn环境。在Mac环境下，由于Mac自带了svn的服务器端和客户端功能，所以我们可以在不装任何第三方软件的前提下使用svn功能，不过还需做一下简单的配置。 我们首先来看下，如何在Mac环境下搭建svn服务器端环境。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +65,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/13/ioscheng-xu-de-buildguo-cheng/">iOS程序的Build过程</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/macxia-da-jian-svnhuan-jing/">Mac下搭建svn环境</a></h1>
     
     
       <p class="meta">
@@ -84,27 +81,22 @@
   
 
 
-<time datetime="2015-02-13T15:07:52+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:35:14+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>本文将轻度解密Xcode build日志，还原iOS程序build的过程。
-另外将介绍如何对build过程的控制，进而定制出自己希望的流程，
-例如通过Build phase的定制，给app icon打水印(包括版本号和日期)。
-通过对工程文件的解读，为你揭开工程文件(.pbxproj)与
-build settings的关系。这对于解决工程文件的merge冲突非常有帮助。
-PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
-某个平台的build过程，那么同样的原理也适用于别的平台。
-可以说换汤不换药，本质是一样的。</p>
+  <div class="entry-content"><p>在Windows环境中，我们一般使用TortoiseSVN来搭建svn环境。在Mac环境下，由于Mac自带了svn的服务器端和客户端功能，所以我们可以在不装任何第三方软件的前提下使用svn功能，不过还需做一下简单的配置。</p>
+
+<p>我们首先来看下，如何在Mac环境下搭建svn服务器端环境。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/13/ioscheng-xu-de-buildguo-cheng/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/macxia-da-jian-svnhuan-jing/">Read on &rarr;</a>
     </footer>
   
 
@@ -116,7 +108,7 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/13/ioszhong-xiao-xi-de-chuan-di-ji-zhi/">iOS中消息的传递机制</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/nstimerde-yong-fa-xia-zai-jin-du-xian-shi/">NSTimer的用法-下载进度显示</a></h1>
     
     
       <p class="meta">
@@ -132,30 +124,20 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
   
 
 
-<time datetime="2015-02-13T14:43:49+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:31:16+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h4>目录</h4>
-
-<p><a href="#01">  可用的机制     </a></p>
-
-<p><a href="#02">  做出正确的选择   </a></p>
-
-<p><a href="#03">  Framework示例 </a></p>
-
-<p><a href="#04">  小结              </a></p>
-
-<p>每个应用程序或多或少，都由一些松耦合的对象构成，这些对象彼此之间要想很好的完成任务，就需要进行消息传递。本文将介绍所有可用的消息传递机制，并通过示例来介绍这些机制在苹果的Framework中如何使用，同时，还介绍了一些最佳实践建议，告诉你什么时机该选择使用什么机制。</p>
+  <div class="entry-content"><p>NSTimer的作用就是以一定的时间间隔向目标对象发送特殊的消息。最常见的是用来控制下载进度条的显示。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/13/ioszhong-xiao-xi-de-chuan-di-ji-zhi/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/nstimerde-yong-fa-xia-zai-jin-du-xian-shi/">Read on &rarr;</a>
     </footer>
   
 
@@ -167,7 +149,7 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/13/macxi-tong-zhong-duan-ming-ling-xing-she-zhi-zi-dong-guan-ji-slash-zhong-qi-slash-shui-mian/">Mac系统终端命令行设置自动关机/重启/睡眠</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-coretextlei-ku-de-xiang-xi-jie-shao/">iOS CoreText类库的详细介绍</a></h1>
     
     
       <p class="meta">
@@ -183,168 +165,22 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
   
 
 
-<time datetime="2015-02-13T14:33:03+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:25:08+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h3>mac设定定时关机/重启/睡眠，可以用终端命令来解决</h3>
+  <div class="entry-content"><p>iOS 编程中如何使用CoreText类库</p>
 
-<p>命令的主体主要是 Shutdown，h/r/s 分别代表关机/重启/睡眠，然后在后面加上执行时间(yymmddhhmm)即可。</p>
-
-<h6>设定2013年11月4日14:10分关机：</h6>
-
-<pre><code>sudo shutdown -h 1311041410
-</code></pre>
-
-<p>也可以</p>
-
-<pre><code>sudo shutdown -h 14:10
-</code></pre>
-
-<h6>设定2013年11月4日14:10分重启：</h6>
-
-<pre><code>    sudo shutdown -r 1311041410
-</code></pre>
-
-<p>也可以</p>
-
-<pre><code>sudo reboot 
-</code></pre>
-
-<p>或者</p>
-
-<pre><code>sudo shutdown -r now
-</code></pre>
-
-<h6>设定2013年11月4日14:10分睡眠：</h6>
-
-<pre><code>sudo shutdown -s 1311041410
-</code></pre>
-
-<h6>如果想要立即关机/重启/睡眠，可以执行命令：</h6>
-
-<pre><code>sudo halt
-</code></pre>
-
-<p>或者</p>
-
-<pre><code>sudo shutdown -h now
-</code></pre>
-
-<p>now也可以适用于重启和睡眠。</p>
-
-<h3>临时取消定时关机/睡眠/重启的方法也很简单</h3>
-
-<p>我们在终端中执行了关机的命令，终端中会显示如下：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>swplzj:~ issuser$ sudo shutdown -s 1311041410
-</span><span class='line'>Shutdown at Mon Nov  4 14:10:00 2013.
-</span><span class='line'>shutdown: [pid 6609]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>注意上面的 pid 6609，这是指当前运行的这个 shutdown 命令的进程号，如果要取消关机，只需要停止这个进程的运行就可以了。</p>
-
-<p>命令为：</p>
-
-<pre><code>sudo kill 6609
-</code></pre>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/13/mac-ji-suan-dai-ma-de-zong-xing-shu/">Mac 计算代码的总行数</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-13T14:31:37+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>计算代码的行数</p>
-
-<p>在终端上的命令，作用：找到项目的根目录，可以计算出代码的行数</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name "*.m" -or -name "*.h" |xargs grep -v "^$"|wc -l
-</span><span class='line'>grep -v "^$"是去掉空行
-</span><span class='line'>find . "(" -name "*.m" -or -name "*.strings" -or -name "*.h" ")" -print | xargs wc -l</span></code></pre></td></tr></table></div></figure>
-
-
-<p>赶快试一试吧，看看你的代码量是多少！</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-maczhong-duan-xia-de-sqlyu-ju/">iOS mac终端下的SQL语句</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-13T14:18:47+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>我们都知道数据库的创建可以借助图形化的数据库工具软件，但也可以在Mac终端下来直接使用代码创建。
-下面介绍怎样建立数据库、建立资料表、建立索引、数据的增、删、改、查以及sqlite3命令列选项等。</p>
+<p><img src="http://img.blog.csdn.net/20131104171422968?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3dwbHpq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="id2" /></p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/13/ios-maczhong-duan-xia-de-sqlyu-ju/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/ios-coretextlei-ku-de-xiang-xi-jie-shao/">Read on &rarr;</a>
     </footer>
   
 
@@ -356,7 +192,7 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-7-jiao-cheng-:qian-xi-text-kit/">iOS 7 教程：浅析Text Kit</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-ying-yong-cheng-xu-mu-lu-jie-gou/">iOS 应用程序目录结构</a></h1>
     
     
       <p class="meta">
@@ -372,36 +208,20 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
   
 
 
-<time datetime="2015-02-13T12:00:06+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:22:19+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Text Kit是iOS 7中引入的一个新功能，非常值得开发者使用，下面先看看本文的目录结构：</p>
-
-<p><a href="#08">      1. 什么是Text Kit    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#01">      2. Text Kit架构   </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#02">      3. Text Kit特点   </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#03">      4. Text Kit功能概述 </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#04">      5. Text Kit中重要的一些对象 </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#05">      6. Text Kit示例   </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#06">      7. 小结   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-
-<p><a href="#07">      8. 推荐Text Kit学习资源   </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <div class="entry-content"><p>iOS应用程序采用的是沙盒原理设计，普及一下知识：沙盒是在受限的安全环境中运行应用程序的一种做法，这种做法是要限制授予应用程序的代码访问权限。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/13/ios-7-jiao-cheng-:qian-xi-text-kit/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/ios-ying-yong-cheng-xu-mu-lu-jie-gou/">Read on &rarr;</a>
     </footer>
   
 
@@ -413,7 +233,7 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/13/xcode-5zhong-de-interface-buildergeng-you-li-yu-tuan-dui-xie-zuo-kai-fa/">Xcode 5中的Interface Builder更有利于团队协作开发</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-si/">iOS 数据持久化(四)</a></h1>
     
     
       <p class="meta">
@@ -429,122 +249,20 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
   
 
 
-<time datetime="2015-02-13T11:30:59+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:11:36+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h4>小引</h4>
-
-<p>在iOS开发中，开发者有各种理由选择用代码来构建界面，其中最多的理由就是Interface Builder绘制的代码不利于团队间协作(代码的可读性和合并)。虽然Interface Builder来绘制界面有诸多优势，但是由于致命的缺陷，许多开发团队不得不远离它，当然也有一些开发团队为了在协同开发时也使用IB来绘制界面，他们尽量确保同一时期只由一个人来操作某个xib文件，以此避免提交代码的时候需要合并xib文件。然而，在Xcode 5中，苹果的开发团队已经对xib文件格式做了大量的简化工作。本文就来简要的看看相关内容。</p>
-
-<p>注：本文译自<a href="http://nilsou.com/blog/2013/08/07/xcode-5-finally-makes-interface-builder-a-viable-option-for-teams/">Xcode 5 Finally Makes Interface Builder a Viable Option for Teams</a></p>
-
-<h4>目录</h4>
-
-<ul>
-<li>Xcode 4中xib文件的格式</li>
-<li>Xcode 5中xib文件的格式</li>
-<li>小结</li>
-</ul>
-
-
-<p>上周我将代码merge到我的working branch时，注意到以前没曾见过的提示：</p>
-
-<p><img src="http://beyondvincent.com/images/2013/09/1.png" alt="id1" /></p>
-
-<p>Git会自动合并xib文件！我在想，Xcode 5中肯定对xib文件的格式做了修改，所以我准备深入研究一下。
-原来由Xcode 5生成的xib文件是一种全新的格式。看起来苹果这次对xib文件格式的变更将有助于开发团队开始考虑使用IB来绘制界面。</p>
-
-<h5>* Xcode 4中xib文件的格式</h5>
-
-<p>为了演示xib文件格式在Xcode 4和Xcode 5中的差异，我首先在Xcode 4中创建了一个新的xib文件，并添加了一些view进去：一个UIScrollView，该scrollview中包含一些UIButton、UILable和TextView等。</p>
-
-<p><img src="http://beyondvincent.com/images/2013/09/2.png" title="xib" alt="id2" /></p>
-
-<p>然后我在工程导航窗口中右键单击该文件，并选择<code>Open As &gt; Source Code</code>。下面的链接中是看到的内容：
-<a href="https://gist.github.com/nilsou/6057457">Xcode 4生成的.xib文件</a>(需要点击“File suppressed. Click to show.”)</p>
-
-<p>可以看到，这么简单的一个view居然有1108行代码！这太多了。</p>
-
-<p>对开发者来说它的可读性非常的糟糕。这是开发者为什么不喜欢xib文件的主要原因(由此放弃使用interface builder)。</p>
-
-<p>更糟糕的是这个xib文件的格式还具有不确定性。也就是说如果我在Interface Builder创建相同的UI界面，但是我们看到的文件内容并不是相同的。这就导致xib文件的合并非常的困难，甚至不可能进行合并。这事开发者不使用xib文件的另外一个重要原因。</p>
-
-<h5>* Xcode 5中xib文件的格式</h5>
-
-<p>接着，我在Xcode 5中打开同一个工程。当在Xcode 5中打开用Xcode 4创建的xib文件时，会提示将文件升级到新的格式。这里需要注意的是升级之后的文件只能在Xcode 5中打开，这种新格式的文件不能在老版本中的Xcode中打开。所以，如果是团队协作开发，那么升级的时候，需要确保所有的开发者都使用Xcode 5。</p>
-
-<p><img src="http://beyondvincent.com/images/2013/09/3.png" alt="id3" /></p>
-
-<p>我点击Upgrade，然后再次打开xib文件的source code，看看有什么变化。如下链接中所示：</p>
-
-<p><a href="https://gist.github.com/nilsou/6057474">Xcode 5生成的.xib文件</a>(需要点击“File suppressed. Click to show.”)</p>
-
-<p><code>133行</code>！这与Xcode 4中创建的xib文件相差约10倍。可见苹果的开发团队已经对xib文件格式做了大量的简化。</p>
-
-<p>再看看里面的具体内容，可以看出它的可读性也加强了。xib文件中的源代码现在也能够反应出view的层次(Interface Builder左边看到的内容结构！)，等熟悉之后，开发者可以直接对这个xml代码进行编写。
-最重要的一点，可以看出Xcode 5生成的xib文件内容源码位置是确定的。这非常利于文件的合并。</p>
-
-<h4>小结</h4>
-
-<p>这种新的格式带来的最大好处不仅仅是增强开发者对xib文件的可读性，另外在大多数情况下，git还可以对xib文件进行自动合并，不用开发者手动进行。</p>
-
-<p>现在如果还有开发者告诉你他不想用xib文件，那么请把这篇文章发给他看看吧，我相信已经没有太多理由不使用xib文件了。</p>
-
-<p>其实在Xcode 5中不仅对Interface Builder进行了改善，还有其它一些功能也做了改进，例如自动布局约束的设置已经没有以前痛苦了。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/02/13/os-xchang-yong-ming-ling-xing-ji-qiao/">OS X常用命令行技巧</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-02-13T10:28:13+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>OS X常用命令行技巧</h1>
-
-<h4>用“caffeinate”来停用屏幕保护和休眠</h4>
-
-<p>山狮（Mac OS X 10.8）引入的新功能caffeinate，它完全就是命令行版本的咖啡因（Caffeine），可以让你电脑保持精神。运行方法：</p>
-
-<p>caffeinate -t 3600</p>
-
-<p>其中， -t用来指定时间，单位是秒，所以上面的例子就是一个小时。</p>
+  <div class="entry-content"><p>iOS中有五种持久化数据的方式：属性列表、对象归档、NSUserDefaults、SQLite3和Core Data</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/13/os-xchang-yong-ming-ling-xing-ji-qiao/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-si/">Read on &rarr;</a>
     </footer>
   
 
@@ -556,7 +274,7 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/12/appzai-itunes-connectli-mian-de-ji-chong-zhuang-tai/">App在iTunes Connect里面的几种状态</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/xcodezhong-xi-tong-ku-wen-jian-libz-dot-dylibde-zuo-yong/">Xcode中系统库文件libz.dylib的作用</a></h1>
     
     
       <p class="meta">
@@ -572,22 +290,24 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
   
 
 
-<time datetime="2015-02-12T20:00:41+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:08:21+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h4>Waiting for Upload (Yellow)</h4>
+  <div class="entry-content"><p>libz.dylib这个Xcode系统库文件经常用到。这个其实是个动态链接库。</p>
 
-<p>Appears when you’ve completed entering your metadata, however, you have not finished uploading your binary or have chosen to upload your binary at a later time. Your app must be in the Waiting For Upload state before you can deliver your binary through Application Loader.</p>
+<p>后缀名为.dylib的文件是一个动态库，这个库是运行时加载而不是编译时加载。这个也说明了obj-C是运行时语言，也就是数据的类型不是在编译时确定的，而是在运行时确定的。</p>
+
+<p>libz.dylib也是zip压缩解压缩的库，开发中经常用到的压缩库，PDF可以使用这个库文件来压缩。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/12/appzai-itunes-connectli-mian-de-ji-chong-zhuang-tai/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/xcodezhong-xi-tong-ku-wen-jian-libz-dot-dylibde-zuo-yong/">Read on &rarr;</a>
     </footer>
   
 
@@ -599,7 +319,7 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/02/12/macban-ben-cornerstonede-wu-xian-qi-po-jie-fang-fa/">Mac版本cornerstone的无限期破解方法</a></h1>
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-(san-)/">iOS 数据持久化（三）</a></h1>
     
     
       <p class="meta">
@@ -615,20 +335,155 @@ PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
   
 
 
-<time datetime="2015-02-12T19:39:29+08:00" pubdate data-updated="true"></time>
+<time datetime="2015-02-13T17:03:35+08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>CornerStone是个人非常喜欢的mac上的一款SVN客户端工具，官方提供了14天的免费试用（trail）版本。我们可以在此基础上提供无限期试用版本。</p>
+  <div class="entry-content"><p>iOS中有五种持久化数据的方式：属性列表、对象归档、NSUserDefaults、SQLite3和Core Data。</p>
+
+<h4>NSUserDefaults官方文档介绍：</h4>
+
+<p>NSUserDefaults类为和默认系统类交互提供了一种编程接口。默认系统允许应用程序去定制其行为，为了符合用户的喜好。举例来说，你可以允许用户去决定在应用程序中显示的计量单位或者文档多久会自动保存。应用程序在用户默认数据库中，通过给一系列参数赋值来记录类似的喜好。这些参数被称为默认值，因为它们通常被用于一个程序在启动时或默认状态下的默认工作状态。</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/02/12/macban-ben-cornerstonede-wu-xian-qi-po-jie-fang-fa/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-(san-)/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-(er-)/">iOS 数据持久化（二）</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T16:59:06+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>iOS中有五种持久化数据的方式：属性列表、对象归档、NSUserDefaults、SQLite3和Core Data。
+本文介绍对象归档来持久化数据。归档的作用就是将对象以文件的形式保存到磁盘中，以使得数据序列化和持久化。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-(er-)/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-%5B%3F%5D/">iOS 数据持久化(一)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T16:46:33+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>iOS中有五种持久化数据的方式：属性列表、对象归档、NSUserDefault、SQLite3和Core Data
+本文章讲述通过属性列表的方式持久化数据，这个方法也是我们平时最经常用到的方式。比如应用程序的配置和个性化的设置，一般都是通过属性列表（properties list） plist文件来存储和读取的。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ios-shu-ju-chi-jiu-hua-%5B%3F%5D/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/02/13/ios-nsinvocationde-xue-xi/">iOS NSInvocation的学习</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-02-13T16:38:21+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>用途：</h4>
+
+<p>NSInvocation的作用和performSelector:withObject:的作用是一样的：用于iOS编程中调用某个对象的消息。</p>
+
+<p>performSelector:withObject:调用一些参数较少的消息是比较方便的，但是对于参数个数大于2的消息，使用NSInvocation还是比较方便的。</p>
+
+<p>因为NSInvocation是静态的呈现Objective-C的消息，也就是说，它把一个行动变成了一个对象。NSInvocation对象用于对象之间和应用程序之间存储和转发消息，主要通过NSTimer对象和分布式对象系统来完成。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/02/13/ios-nsinvocationde-xue-xi/">Read on &rarr;</a>
     </footer>
   
 
