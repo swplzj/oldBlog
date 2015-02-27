@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[李振杰]]></title>
+  <title><![CDATA[李振杰 - 专注移动应用的快速开发]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-16T09:11:33+08:00</updated>
+  <updated>2015-02-27T10:24:38+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -7048,9 +7048,7 @@ wwdc视频:</p>
     <link href="http://swplzj.github.io/blog/2014/05/11/os-xchang-yong-ming-ling-xing-ji-qiao/"/>
     <updated>2014-05-11T23:08:13+08:00</updated>
     <id>http://swplzj.github.io/blog/2014/05/11/os-xchang-yong-ming-ling-xing-ji-qiao</id>
-    <content type="html"><![CDATA[<h1>OS X常用命令行技巧</h1>
-
-<h4>用“caffeinate”来停用屏幕保护和休眠</h4>
+    <content type="html"><![CDATA[<h4>用“caffeinate”来停用屏幕保护和休眠</h4>
 
 <p>山狮（Mac OS X 10.8）引入的新功能caffeinate，它完全就是命令行版本的咖啡因（Caffeine），可以让你电脑保持精神。运行方法：</p>
 
