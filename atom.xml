@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-03-03T10:34:21+08:00</updated>
+  <updated>2015-03-03T11:22:34+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -12,6 +12,174 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[valueForKeyPath的使用总结]]></title>
+    <link href="http://swplzj.github.io/blog/2015/01/16/valueforkeypathde-shi-yong-zong-jie/"/>
+    <updated>2015-01-16T21:10:46+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/01/16/valueforkeypathde-shi-yong-zong-jie</id>
+    <content type="html"><![CDATA[<p>可能大家对- (id)valueForKeyPath:(NSString *)keyPath方法不是很了解。
+其实这个方法非常的强大，具体有以下几个功能:</p>
+
+<h5>对数组中的每个元素执行成员实例方法</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@"name", @"w", @"aa", @"jimsa"];
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"uppercaseString"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>    NAME,
+</span><span class='line'>    W,
+</span><span class='line'>    AA,
+</span><span class='line'>    JIMSA
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>相当于数组中的每个成员执行了uppercaseString方法，然后把返回的对象组成一个新数组返回。既然可以用uppercaseString方法，那么NSString的其他方法也可以，比如</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[array valueForKeyPath:@"length"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>返回每个字符串长度的组成的数组。只要你能想到的成员实例方法都可以这么用。</p>
+
+<h5>对NSNumber数组快速计算数组求和、平均数、最大值、最小值</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@1, @2, @3, @4, @10];
+</span><span class='line'>NSNumber *sum = [array valueForKeyPath:@"@sum.self"];
+</span><span class='line'>NSNumber *avg = [array valueForKeyPath:@"@avg.self"];
+</span><span class='line'>NSNumber *max = [array valueForKeyPath:@"@max.self"];
+</span><span class='line'>NSNumber *min = [array valueForKeyPath:@"@min.self"];</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h5>或者指定输出类型</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSNumber *sum = [array valueForKeyPath:@"@sum.floatValue"];
+</span><span class='line'>NSNumber *avg = [array valueForKeyPath:@"@avg.floatValue"];
+</span><span class='line'>NSNumber *max = [array valueForKeyPath:@"@max.floatValue"];
+</span><span class='line'>NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>剔除重复数据</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@"name", @"w", @"aa", @"jimsa", @"aa"];
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.self"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>打印</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>name,
+</span><span class='line'>w,
+</span><span class='line'>jimsa,
+</span><span class='line'>aa
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>对NSDictionary数组快速找出相应key对的值</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @2},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jbos",@"code" : @1}];
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"name"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>直接得到字典中namekey对应的值组成的数组，显然比循环取值再加入到新数组中方便快捷</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>    cookeee,
+</span><span class='line'>    jim,
+</span><span class='line'>    jim,
+</span><span class='line'>    jbos
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同样可以嵌套使用，先剔除name对应值的重复数据再取值</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @2},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jbos",@"code" : @1}];
+</span><span class='line'>
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.name"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>打印</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>cookeee,
+</span><span class='line'>jim,
+</span><span class='line'>jbos
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>改变UITextfiedl的placeholder的颜色</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>比起重写</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)drawPlaceholderInRect:(CGRect)rect;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>要方便很多</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Objective-C中的Selector和SEL]]></title>
@@ -7046,205 +7214,6 @@ wwdc视频:</p>
 <li>IntroToTextKit</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[NSTimer的用法-下载进度显示]]></title>
-    <link href="http://swplzj.github.io/blog/2014/06/10/nstimerde-yong-fa-xia-zai-jin-du-xian-shi/"/>
-    <updated>2014-06-10T22:51:16+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/06/10/nstimerde-yong-fa-xia-zai-jin-du-xian-shi</id>
-    <content type="html"><![CDATA[<p>NSTimer的作用就是以一定的时间间隔向目标对象发送特殊的消息。最常见的是用来控制下载进度条的显示。</p>
-
-<!--more-->
-
-
-<h4>创建一个 Timer</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>+ scheduledTimerWithTimeInterval: invocation: repeats:
-</span><span class='line'>+ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti   invocation:(NSInvocation *)invocation   repeats:(BOOL)yesOrNo;
-</span><span class='line'>+ scheduledTimerWithTimeInterval: target: selector: userInfo: repeats:
-</span><span class='line'>+ (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti   target:(id)aTarget   selector:(SEL)aSelector   userInfo:(id)userInfo   repeats:(BOOL)yesOrNo;</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>启动 Timer</h4>
-
-<pre><code>– fire
-</code></pre>
-
-<h4>停止 Timer</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>– invalidate
-</span><span class='line'>Timer设置
-</span><span class='line'>– isValid
-</span><span class='line'>– fireDate
-</span><span class='line'>– setFireDate:
-</span><span class='line'>– timeInterval
-</span><span class='line'>– userInfo</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>有码有真相：</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//  
-</span><span class='line'>//  AppDelegate.m  
-</span><span class='line'>//  TimerDemo  
-</span><span class='line'>//  
-</span><span class='line'>//  Created by 李振杰 on 13-12-18.  
-</span><span class='line'>//  Copyright (c) 2013年 swplzj. All rights reserved.  
-</span><span class='line'>//  
-</span><span class='line'>  
-</span><span class='line'>#import "AppDelegate.h"  
-</span><span class='line'>  
-</span><span class='line'>//最大下载时间  
-</span><span class='line'>#define DOWNLOAD_TIMEOUT    60.0  
-</span><span class='line'>  
-</span><span class='line'>static int sec = 0;  
-</span><span class='line'>  
-</span><span class='line'>@interface AppDelegate ()  
-</span><span class='line'>{  
-</span><span class='line'>    NSTimer *_timer;  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>  
-</span><span class='line'>@end  
-</span><span class='line'>  
-</span><span class='line'>@implementation AppDelegate  
-</span><span class='line'>  
-</span><span class='line'>- (void)dealloc  
-</span><span class='line'>{  
-</span><span class='line'>    [_window release];  
-</span><span class='line'>    [super dealloc];  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>- (void)initView  
-</span><span class='line'>{  
-</span><span class='line'>    //创建一个进度条：用于显示下载的进度  
-</span><span class='line'>    UIProgressView *progress = [[UIProgressView alloc] initWithFrame:CGRectMake(20, 60, 220, 30)];  
-</span><span class='line'>    [progress setBackgroundColor:[UIColor brownColor]];  
-</span><span class='line'>    [progress setProgressViewStyle:UIProgressViewStyleBar];  
-</span><span class='line'>    [progress setProgress:0];  
-</span><span class='line'>    [progress setTag:0x123];  
-</span><span class='line'>    [self.window addSubview:progress];  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>//更新进度条  
-</span><span class='line'>- (void)updateView  
-</span><span class='line'>{  
-</span><span class='line'>    sec++;  
-</span><span class='line'>    UIProgressView *pro = (UIProgressView *)[self.window viewWithTag:0x123];  
-</span><span class='line'>    if (pro) {  
-</span><span class='line'>        [pro setProgress:sec / DOWNLOAD_TIMEOUT animated:YES];  
-</span><span class='line'>    }  
-</span><span class='line'>    if (sec &gt; DOWNLOAD_TIMEOUT) {  
-</span><span class='line'>        //这是唯一的方法：从NSRunLoop中移除创建的定时器  
-</span><span class='line'>        [_timer invalidate];  
-</span><span class='line'>        _timer = nil;  
-</span><span class='line'>    }  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>  
-</span><span class='line'>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions  
-</span><span class='line'>{  
-</span><span class='line'>    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];  
-</span><span class='line'>    // Override point for customization after application launch.  
-</span><span class='line'>  
-</span><span class='line'>    [self initView];  
-</span><span class='line'>    //在当前的runloop中添加一个定时器，每0.5s调用updateView函数一次  
-</span><span class='line'>    _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateView) userInfo:nil repeats:YES];  
-</span><span class='line'>      
-</span><span class='line'>    self.window.backgroundColor = [UIColor whiteColor];  
-</span><span class='line'>    [self.window makeKeyAndVisible];  
-</span><span class='line'>    return YES;  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>@end  </span></code></pre></td></tr></table></div></figure>
-
-
-<p><a href="http://download.csdn.net/detail/swplzj/6735607">下载例子链接</a></p>
 ]]></content>
   </entry>
   

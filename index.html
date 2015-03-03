@@ -11,7 +11,10 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="Objective-C中Selector基本概念和操作 简而言之，你可以理解 @selector()就是取类方法的编号,他的行为基本可以等同C语言的中函数指针,只不过C语言中，可以把函数名直接赋给一个函数指针，而Objective-C的类不能直接应用函数指针，这样只能做一个@ &hellip;">
+  <meta name="description" content="可能大家对- (id)valueForKeyPath:(NSString *)keyPath方法不是很了解。
+其实这个方法非常的强大，具体有以下几个功能: 对数组中的每个元素执行成员实例方法 1
+2
+NSArray *array = @[@"name", @"w", @"aa", @"jimsa &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -59,6 +62,201 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/16/valueforkeypathde-shi-yong-zong-jie/">valueForKeyPath的使用总结</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-16T21:10:46+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>可能大家对- (id)valueForKeyPath:(NSString *)keyPath方法不是很了解。
+其实这个方法非常的强大，具体有以下几个功能:</p>
+
+<h5>对数组中的每个元素执行成员实例方法</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@"name", @"w", @"aa", @"jimsa"];
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"uppercaseString"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输出</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>    NAME,
+</span><span class='line'>    W,
+</span><span class='line'>    AA,
+</span><span class='line'>    JIMSA
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>相当于数组中的每个成员执行了uppercaseString方法，然后把返回的对象组成一个新数组返回。既然可以用uppercaseString方法，那么NSString的其他方法也可以，比如</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[array valueForKeyPath:@"length"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>返回每个字符串长度的组成的数组。只要你能想到的成员实例方法都可以这么用。</p>
+
+<h5>对NSNumber数组快速计算数组求和、平均数、最大值、最小值</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@1, @2, @3, @4, @10];
+</span><span class='line'>NSNumber *sum = [array valueForKeyPath:@"@sum.self"];
+</span><span class='line'>NSNumber *avg = [array valueForKeyPath:@"@avg.self"];
+</span><span class='line'>NSNumber *max = [array valueForKeyPath:@"@max.self"];
+</span><span class='line'>NSNumber *min = [array valueForKeyPath:@"@min.self"];</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h5>或者指定输出类型</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSNumber *sum = [array valueForKeyPath:@"@sum.floatValue"];
+</span><span class='line'>NSNumber *avg = [array valueForKeyPath:@"@avg.floatValue"];
+</span><span class='line'>NSNumber *max = [array valueForKeyPath:@"@max.floatValue"];
+</span><span class='line'>NSNumber *min = [array valueForKeyPath:@"@min.floatValue"];</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>剔除重复数据</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@"name", @"w", @"aa", @"jimsa", @"aa"];
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.self"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>打印</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>name,
+</span><span class='line'>w,
+</span><span class='line'>jimsa,
+</span><span class='line'>aa
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>对NSDictionary数组快速找出相应key对的值</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @2},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jbos",@"code" : @1}];
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"name"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>直接得到字典中namekey对应的值组成的数组，显然比循环取值再加入到新数组中方便快捷</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>    cookeee,
+</span><span class='line'>    jim,
+</span><span class='line'>    jim,
+</span><span class='line'>    jbos
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同样可以嵌套使用，先剔除name对应值的重复数据再取值</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> NSArray *array = @[@{@"name" : @"cookeee",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @2},
+</span><span class='line'>                           @{@"name": @"jim",@"code" : @1},
+</span><span class='line'>                           @{@"name": @"jbos",@"code" : @1}];
+</span><span class='line'>
+</span><span class='line'>NSLog(@"%@", [array valueForKeyPath:@"@distinctUnionOfObjects.name"]);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>打印</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(
+</span><span class='line'>cookeee,
+</span><span class='line'>jim,
+</span><span class='line'>jbos
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>改变UITextfiedl的placeholder的颜色</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[searchField setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];</span></code></pre></td></tr></table></div></figure>
+
+
+<p>比起重写</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void)drawPlaceholderInRect:(CGRect)rect;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>要方便很多</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -635,49 +833,6 @@
   
     <footer>
       <a rel="full-article" href="/blog/2014/09/21/instancetype-yu-id-de-qu-bie/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/17/look-up/">《抬起头吧》</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-17T18:54:32+08:00" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h4>《Look up》-《抬起头吧》很有感触</h4>
-
-<p>我有好几百位手机好友，但我仍然常常感到孤独；我每天跟他们聊天，但是好像他们并不了解真正的我。我的疑问来自于人与人之间的相处方式，我究竟是想看着他们的眼睛，还是手机上的昵称？直到有一天我发现，所谓的社交网络，并不完全是我们看到的那样。当我们打开电脑或者手机，其实也就关上了彼此心灵沟通的大门。</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/17/look-up/">Read on &rarr;</a>
     </footer>
   
 
