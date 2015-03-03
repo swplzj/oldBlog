@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-03-03T11:22:34+08:00</updated>
+  <updated>2015-03-03T11:36:38+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -22,6 +22,11 @@
 其实这个方法非常的强大，具体有以下几个功能:</p>
 
 <h5>对数组中的每个元素执行成员实例方法</h5>
+
+<!--more-->
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -189,6 +194,11 @@
     <content type="html"><![CDATA[<h4>Objective-C中Selector基本概念和操作</h4>
 
 <p>简而言之，你可以理解 @selector()就是取类方法的编号,他的行为基本可以等同C语言的中函数指针,只不过C语言中，可以把函数名直接赋给一个函数指针，而Objective-C的类不能直接应用函数指针，这样只能做一个@selector语法来取.</p>
+
+<!--more-->
+
+
+<p></p>
 
 <p>它的结果是一个SEL类型。这个类型本质是类方法的编号(函数地址)?因此我们有如下代码。</p>
 
