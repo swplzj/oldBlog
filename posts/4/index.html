@@ -11,8 +11,10 @@
   <meta name="author" content="LeeZhenjie">
 
   
-  <meta name="description" content="在新浪视频上看到了央视拍的一段公益广告，看了之后的确励志，自己确实有过这样的经历，可以说现在就走在“再一次”的路上。
-内容写的很好，敲出来与大家分享励志共勉。 《再一次》 ">
+  <meta name="description" content="本文将轻度解密Xcode build日志，还原iOS程序build的过程。
+另外将介绍如何对build过程的控制，进而定制出自己希望的流程，
+例如通过Build phase的定制，给app icon打水印(包括版本号和日期)。
+通过对工程文件的解读，为你揭开工程文件(.pbxproj)与 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +62,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/01/09/ioscheng-xu-de-buildguo-cheng/">iOS程序的Build过程</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-09T20:07:52+08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>本文将轻度解密Xcode build日志，还原iOS程序build的过程。
+另外将介绍如何对build过程的控制，进而定制出自己希望的流程，
+例如通过Build phase的定制，给app icon打水印(包括版本号和日期)。
+通过对工程文件的解读，为你揭开工程文件(.pbxproj)与
+build settings的关系。这对于解决工程文件的merge冲突非常有帮助。
+PS：实际上各开发平台的build过程都比较相似，如果你熟悉了
+某个平台的build过程，那么同样的原理也适用于别的平台。
+可以说换汤不换药，本质是一样的。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/01/09/ioscheng-xu-de-buildguo-cheng/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>

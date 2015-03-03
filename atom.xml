@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-02-27T10:27:17+08:00</updated>
+  <updated>2015-03-03T10:34:21+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -12,6 +12,211 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Objective-C中的Selector和SEL]]></title>
+    <link href="http://swplzj.github.io/blog/2015/01/07/objective-czhong-de-selectorhe-sel/"/>
+    <updated>2015-01-07T10:32:05+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/01/07/objective-czhong-de-selectorhe-sel</id>
+    <content type="html"><![CDATA[<h4>Objective-C中Selector基本概念和操作</h4>
+
+<p>简而言之，你可以理解 @selector()就是取类方法的编号,他的行为基本可以等同C语言的中函数指针,只不过C语言中，可以把函数名直接赋给一个函数指针，而Objective-C的类不能直接应用函数指针，这样只能做一个@selector语法来取.</p>
+
+<p>它的结果是一个SEL类型。这个类型本质是类方法的编号(函数地址)?因此我们有如下代码。</p>
+
+<h5>一、取得selector值.</h5>
+
+<p>C函数指针</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int add(int val)  
+</span><span class='line'>{  
+</span><span class='line'>  return val+1;  
+</span><span class='line'>}  
+</span><span class='line'>int (* c_func)(int val); //定义一个函数指针变量  
+</span><span class='line'>_func = add ;  //把函数addr地址直接赋给c_func </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Objective-C的选择器,</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@interface foo  
+</span><span class='line'>-(int)add:int val;  
+</span><span class='line'>@end  
+</span><span class='line'> 
+</span><span class='line'>SEL class_func ; //定义一个类方法指针  
+</span><span class='line'>class_func = @selector(add:int); </span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>注意:</code></p>
+
+<ol>
+<li>@selector是查找当前类的方法，而[object @selector(方法名:方法参数..) ] ;是取object对应类的相庆方法;</li>
+<li>查找类方法时，除了方法名,方法参数也查询条件之一.</li>
+<li>可以用字符串来找方法 SEL　变量名　=　NSSelectorFromString(方法名字的字符串);</li>
+<li>可以运行中用SEL变量反向查出方法名字字符串</li>
+</ol>
+
+
+<p>NSString　*变量名　=　NSStringFromSelector(SEL参数);</p>
+
+<h5>二、执行selector值.</h5>
+
+<p>取得相庆值后，怎么处理SEL值呢，这一点仍然与函数指针一样，就是执行它</p>
+
+<p>函数指针执行，（以下有几种等效形式）</p>
+
+<ul>
+<li>*c_func(10);</li>
+<li>c_func(10);</li>
+<li>SEL变量的执行.用performSelecor方法来执行.</li>
+<li>[对象　performSelector:SEL变量　withObject:参数1　withObject:参数2];</li>
+</ul>
+
+
+<h5>三.selector的应用场合</h5>
+
+<p>selector本质是跟C的回调函数一样。主要用于两个对象之间进行松耦合的通讯.这种方法很多开发环境用到。比如GTK，Delphi.基本上整个Cocoa库之间对象，控制之间通讯都是在这个基础构建的。</p>
+
+<h4>SEL</h4>
+
+<p>在Objective-C中，SEL是选择器（selector）的一个类型。选择器就是指向方法的一个指针，读者可以简单理解为程序运行到这里就会执行指定的方法，可以这样定义一个选择器：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SEL action = [button action]; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>我们这样使用一个选择器，下面的选择器都叫做action：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[Foo action]  
+</span><span class='line'>[Bar action] </span></code></pre></td></tr></table></div></figure>
+
+
+<p>在Target-Action 模式（Cocoa 程序中的一种常用模式）中：Target 指定了一个类，Action指定一个方法。在一个对象上设置Action就是通过选择器完成的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-（void）setTarget:（id）target;  
+</span><span class='line'>-（void）setAction:（SEL）action; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>下述语句设置了一个button对象上的Action为“@selector（start:）”，即它调用start方法：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[button setAction:@selector（start:）]; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果你的方法上有两个参数，比如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-（void）setName:（NSString *）name age:（int）age; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>那么，你的选择器应该这样书写：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SEL sel = @selector（setName:age:）; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果方法不存在的话，调用该方法的应用可能会异常中止。所以，需要使用respondsToSelector 方法来判断该对象是否存在对应的方法，使用performSelector:withObject:方法来调用选择器：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SEL sel = @selector (start:) ; // 指定action  
+</span><span class='line'>if ([obj respondsToSelector:sel]) { //判断该对象是否有相应的方法  
+</span><span class='line'>[obj performSelector:sel withObject:self]; //调用选择器方法  
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>下面来看一个应用选择器的实例。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;Foundation/Foundation.h&gt; 
+</span><span class='line'>@interface ClassA : NSObject {  
+</span><span class='line'>}  
+</span><span class='line'>- (void) print;  
+</span><span class='line'>@end  
+</span><span class='line'>@implementation ClassA  
+</span><span class='line'>- (void) print{  
+</span><span class='line'>NSLog (@"I'm ClassA.") ;  
+</span><span class='line'>}  
+</span><span class='line'>@end  
+</span><span class='line'>int main (int argc, const char * argv[]) {  
+</span><span class='line'>NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];  
+</span><span class='line'>SEL sel = @selector (print) ;  
+</span><span class='line'>ClassA *classA = [[ClassA alloc]init];  
+</span><span class='line'>[classA performSelector:sel withObject:nil]; //调用选择器指定的方法  
+</span><span class='line'>[pool drain];  
+</span><span class='line'>return 0;  
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>【程序结果】</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>I'm ClassA. </span></code></pre></td></tr></table></div></figure>
+
+
+<p>下面解释一下这段代码，读者有可能看不明白，因为到目前为止并没有讲述类相关的知识。读者只需要了解上述例子中选择器的用法即可，关于类的知识，会在后面的章节详细阐述。</p>
+
+<p>代码首先创建了一个名字叫ClassA 的类，它只包含一个方法print。在随后的实现文件中，我们实现了这个方法：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- (void) print{  
+</span><span class='line'>NSLog (@"I'm ClassA.") ;  
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<p>读者不难看出，这个方法仅仅是打印到控制台上一句话。在接下来的main方法中，定义了一个选择器sel，它指向的是一个名叫print 的方法。我们并不知道这个方法是哪个类的，因为具体的信息是在运行期间系统自动帮我们判断的。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>SEL sel = @selector (print) ; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>随后构建了一个对象（读者不用拘泥于语法，我们会在后面的章节详细阐述），并调用这个对象performSelector:withObject:的方法。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ClassA *classA = [[ClassA alloc]init];  
+</span><span class='line'>[classA performSelector:sel withObject:nil]; </span></code></pre></td></tr></table></div></figure>
+
+
+<p>这时候，系统就会自动调用classA对象的print方法，最终得到程序运行结果。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[使用神奇的PONYDEBUGGER调试iOS应用]]></title>
@@ -7040,94 +7245,6 @@ wwdc视频:</p>
 
 
 <p><a href="http://download.csdn.net/detail/swplzj/6735607">下载例子链接</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[OS X常用命令行技巧]]></title>
-    <link href="http://swplzj.github.io/blog/2014/05/11/os-xchang-yong-ming-ling-xing-ji-qiao/"/>
-    <updated>2014-05-11T23:08:13+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/05/11/os-xchang-yong-ming-ling-xing-ji-qiao</id>
-    <content type="html"><![CDATA[<h4>用“caffeinate”来停用屏幕保护和休眠</h4>
-
-<p>山狮（Mac OS X 10.8）引入的新功能caffeinate，它完全就是命令行版本的咖啡因（Caffeine），可以让你电脑保持精神。运行方法：</p>
-
-<p>caffeinate -t 3600</p>
-
-<p>其中， -t用来指定时间，单位是秒，所以上面的例子就是一个小时。</p>
-
-<!--more-->
-
-
-<h4>用pkgutil来释放PKG文件</h4>
-
-<p>如果你只是想从pkg文件里面抓取一些文件出来而不想安装整个软件？那pkgutil最适合你不过了：</p>
-
-<p>pkgutil &ndash;expand sample.pkg ~/Desktop/</p>
-
-<p>当然，你需要把sample.pkg的名字改成对应你要释出的pkg包的名字，上面的例子会把整个pkg包解压到桌面。</p>
-
-<h4>用“purge”来清理内存</h4>
-
-<p>purge清理磁盘和内存的缓存，效果类似于重启电脑。虽然有人说这也就是个安慰剂，但是它的确会对那些不活动的进程的内存释放出来，当你机器的内存不够用的时候，它是可以起到加速作用的。</p>
-
-<p>purge的用法非常简单：</p>
-
-<p>purge</p>
-
-<p>执行的过程中需要等一小会儿，之后各个进程的速度就会快起来啦！</p>
-
-<p>（小编注：如果你机器内存很大，并且用不完，真的没有什么必要总执行这个命令，需要等那个时间不说，程序自己建立的一些缓存会因为这个命令重新构建，除非是你内存真的不够用了，否则得不偿失。）</p>
-
-<h4>使用“open” 来启动同一个app的多个实例</h4>
-
-<p>你可能已经知道你可以通过命令行里的open命令来启动电脑上的程序，但是你知道吗，其实可以再加上-n的选项来创建多个实例。而且这非常简单，你所需要做的只是：</p>
-
-<p>open -n /Applications/Safari.app/</p>
-
-<p>上面的例子会创建另外的Safari ，你可以根据你的需要来启动其他的程序，别忘了.app的后缀</p>
-
-<h4>不通过App Store更新系统</h4>
-
-<p>更新系统这样的事情，并不一定要麻烦App Store。你可以在命令行里直接搞定这个事情，而这也非常简单：</p>
-
-<p>sudo softwareupdate -i -a</p>
-
-<p>这个命令其实在Mac OS X系统中已经存在好多年了。所以各种版本都可以使用这种方法来更新系统。</p>
-
-<p>列出来所有下载过的东西</p>
-
-<p>我们都经历过这样的事情吧：之前下载了一个什么东西，但是忘记是从那里下载的了，或者记不清出它叫什么名字。不过还好，你很幸运，因为免疫服务（Quarantine Service）保存了一份你所有的下载内容的数据库，这样一来你就可以查询那个数据库来找到你想要的东西。可以通过sqlite3命令来实现：</p>
-
-<p>sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* &lsquo;select LSQuarantineDataURLString from LSQuarantineEvent&rsquo; |more</p>
-
-<h4>用“chflags”来隐藏文件和文件夹</h4>
-
-<p>有什么想隐藏的文件或者文件见吗？用chflags命令就可以把任何文件或者文件夹从系统里面隐藏起来。对于文件和文件夹，使用方法都一样：</p>
-
-<p>chflags hidden /path/to/file/or/folder/</p>
-
-<p>幸好（或者但是）这样隐藏过的文件和文件夹依然可以通过ls看到，不过在Finder里面还是看不到的，除非你使用了nohidden选项之前，比如：</p>
-
-<p>chflags nohidden /path/to/unhide/</p>
-
-<p>这两种改变都是立即生效的。</p>
-
-<h4>用拖拽的方式来自动写入文件</h4>
-
-<p>要是你们在命令行里面还苦逼兮兮的写很长的文件路径，就有点太对不住自己了。因为Mac OS X里面可以通过拖拽的方式输入路径：</p>
-
-<p>sudo vi (drag file here to print the full path)</p>
-
-<p>无论在命令行上还是终端程序里面，都生效。</p>
-
-<h4>创建加密的压缩包</h4>
-
-<p>如果你想加密一个压缩包，其实不需要什么其他的软件，系统自己就可以完成：</p>
-
-<p>zip -e protected.zip /file/to/protect/</p>
-
-<p>如果没有-e就会创建一个普通的，没有密码的压缩包。</p>
 ]]></content>
   </entry>
   
