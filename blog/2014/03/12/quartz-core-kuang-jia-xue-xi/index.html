@@ -88,8 +88,10 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'> #import &lt;Quartz Core/QuartzCore.h&gt; 
 </span><span class='line'> ```
+</span><span class='line'> 
 </span><span class='line'>##### 二、认识图层
 </span><span class='line'>
 </span><span class='line'>对 PS 有所了解的人都知道图层的概念，在这里也一样。在PS中一张图片至少得有一个图层，一个或多个图层的叠加构成了一张位图。我们这里一个或多个图层的叠加的构成了`UIView`（或其派生类）对象。要访问一个图层，需要读取 `UIview` 的 `layer` 属性。
@@ -121,17 +123,12 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>UIView* gameView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame] ];</p>
-
-<p>UIView* backgroundView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame]];</p>
-
-<p>UIView* roleView= [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 100.0, 200.0)];</p>
-
-<p>UIView* mapView = [[UIView alloc]initWithFrame:CGRectMake(200.0, 0.0, 100.0, 100.0)];</p>
-
-<p>//通过CALayer 类的addSublayer 方法，你可以将3个UIView 类的图层全都与 gameView 对象链接在一起：</p>
-
-<p>CALayer* gameLayer = gameView.layer;<br/>
+<p>UIView<em> gameView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame] ];<br/>
+UIView</em> backgroundView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen]applicationFrame]];<br/>
+UIView<em> roleView= [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 100.0, 200.0)];<br/>
+UIView</em> mapView = [[UIView alloc]initWithFrame:CGRectMake(200.0, 0.0, 100.0, 100.0)];<br/>
+//通过CALayer 类的addSublayer 方法，你可以将3个UIView 类的图层全都与 gameView 对象链接在一起：<br/>
+CALayer* gameLayer = gameView.layer;<br/>
 [gameLayer addSublayer:backgroundView.layer];<br/>
 [gameLayer addSublayer:roleView.layer];<br/>
 [gameLayer addSublayer:mapView.layer];</p>
@@ -312,7 +309,9 @@ animation.cumulative =YES;<br/>
 animation.repeatCount=2;</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>创建好之后，你可以直接将动画或者转场应用到一个图层上：
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>
+</span><span class='line'>创建好之后，你可以直接将动画或者转场应用到一个图层上：
 </span></code></pre></td></tr></table></div></figure>
 
 
