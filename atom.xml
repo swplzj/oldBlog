@@ -4,7 +4,7 @@
   <title><![CDATA[李振杰]]></title>
   <link href="http://swplzj.github.io/atom.xml" rel="self"/>
   <link href="http://swplzj.github.io/"/>
-  <updated>2015-03-12T12:39:40+08:00</updated>
+  <updated>2015-03-13T11:28:04+08:00</updated>
   <id>http://swplzj.github.io/</id>
   <author>
     <name><![CDATA[LeeZhenjie]]></name>
@@ -12,6 +12,228 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[iOS - UIWebView 动态载入/删除/更新外部 JavaScript/CSS 文件]]></title>
+    <link href="http://swplzj.github.io/blog/2015/03/12/ios-uiwebview-dong-tai-zai-ru-slash-shan-chu-slash-geng-xin-wai-bu-javascript-slash-css-wen-jian/"/>
+    <updated>2015-03-12T19:59:54+08:00</updated>
+    <id>http://swplzj.github.io/blog/2015/03/12/ios-uiwebview-dong-tai-zai-ru-slash-shan-chu-slash-geng-xin-wai-bu-javascript-slash-css-wen-jian</id>
+    <content type="html"><![CDATA[<h5>动态载入 JavaScript/CSS 文件</h5>
+
+<p>传统加载外部 <code>JavaScript(*.js)</code> 或者 <code>CSS(*.css)</code> 文件的方法是直接在 <code>&lt;head&gt;</code> 标签里面进行添加:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;head&gt; 
+</span><span class='line'>&lt;script type="text/javascript" src="myscript.js"&gt;&lt;/script&gt; 
+</span><span class='line'>&lt;link rel="stylesheet" type="text/css" href="main.css" /&gt; 
+</span><span class='line'>&lt;/head&gt; </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!--more-->
+
+
+<p>这些文件用这种方式会同步加载到当前这个页面。</p>
+
+<h5>用动态的方式载入 JavaScript/CSS 文件：</h5>
+
+<p>用 DOM createElement 方法创建一个 “script” 或者 ”link” 元素
+设置相应的属性
+使用 appendChild 方法, 把创建的元素插入到 head 标签的末尾</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function loadjscssfile(filename, filetype){ 
+</span><span class='line'>//如果文件类型为 .js ,则创建 script 标签，并设置相应属性 
+</span><span class='line'>if (filetype=="js"){ 
+</span><span class='line'>var fileref=document.createElement('script'); 
+</span><span class='line'>fileref.setAttribute("type","text/javascript"); 
+</span><span class='line'>fileref.setAttribute("src", filename); 
+</span><span class='line'>} 
+</span><span class='line'>//如果文件类型为 .css ,则创建 script 标签，并设置相应属性 
+</span><span class='line'>else if (filetype=="css"){ 
+</span><span class='line'>var fileref=document.createElement("link"); 
+</span><span class='line'>fileref.setAttribute("rel", "stylesheet"); 
+</span><span class='line'>fileref.setAttribute("type", "text/css"); 
+</span><span class='line'>fileref.setAttribute("href", filename); 
+</span><span class='line'>} 
+</span><span class='line'>if (typeof fileref!="undefined") 
+</span><span class='line'>document.getElementsByTagName("head")[0].appendChild(fileref); 
+</span><span class='line'>} 
+</span><span class='line'>//动态添加一个.js 文件 
+</span><span class='line'>loadjscssfile("myscript.js", "js"); 
+</span><span class='line'>//像添加.js文件一样，动态添加一个.php文件 
+</span><span class='line'>loadjscssfile("javascript.php", "js"); 
+</span><span class='line'>//动态一个.css文件 
+</span><span class='line'>loadjscssfile("mystyle.css", "css"); </span></code></pre></td></tr></table></div></figure>
+
+
+<h5>为了防止多次载入同一个js/css文件， 添加以下判断（这只是粗略检测）</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//临时载入的文件名 
+</span><span class='line'>var filesadded=""; 
+</span><span class='line'>function checkloadjscssfile(filename, filetype){ 
+</span><span class='line'>if (filesadded.indexOf("["+filename+"]")==-1){ 
+</span><span class='line'>loadjscssfile(filename, filetype); 
+</span><span class='line'>//把 [filename] 存入 filesadded 
+</span><span class='line'>filesadded+="["+filename+"]"; 
+</span><span class='line'>} 
+</span><span class='line'>else{ 
+</span><span class='line'>alert("file already added!"); 
+</span><span class='line'>} 
+</span><span class='line'>//第一次载入 
+</span><span class='line'>checkloadjscssfile("myscript.js", "js"); 
+</span><span class='line'>//重复载入同一个文件， 失败 
+</span><span class='line'>checkloadjscssfile("myscript.js", "js"); </span></code></pre></td></tr></table></div></figure>
+
+
+<h5>动态删除 JavaScript/Csss 文件</h5>
+
+<p>注意：ie6/7 下动态删除样式时有bug. 2种解决方案：1.样式表里不要有import的样式表 2.把link的type属性设置为空值， 然后再修改 href 的地， 或者直接设置href为空， 最后再把type值设置成”text/css” 强制让ie解释新的样式表。</p>
+
+<p>取得相应的 DOM 元素
+根据 文件名&amp;文件类型 定位元素
+用 DOM removeChild 删除一个 “script” 或者 ”link” 元素</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function removejscssfile(filename, filetype){ 
+</span><span class='line'>//判断文件类型 
+</span><span class='line'>var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"; 
+</span><span class='line'>//判断文件名 
+</span><span class='line'>var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"; 
+</span><span class='line'>var allsuspects=document.getElementsByTagName(targetelement); 
+</span><span class='line'>//遍历元素， 并删除匹配的元素 
+</span><span class='line'>for (var i=allsuspects.length; i&gt;=0; i--){ 
+</span><span class='line'>if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1) 
+</span><span class='line'>allsuspects[i].parentNode.removeChild(allsuspects[i]); 
+</span><span class='line'>} 
+</span><span class='line'>} 
+</span><span class='line'>removejscssfile("somescript.js", "js"); 
+</span><span class='line'>removejscssfile("somestyle.css", "css"); </span></code></pre></td></tr></table></div></figure>
+
+
+<h5>动态更新 JavaScript/Csss 文件</h5>
+
+<p>使用 createElement 创建 要更新的 JavaScript/Css 元素
+查找要被替换的元素
+用 replaceChild 替换元素</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function createjscssfile(filename, filetype){ 
+</span><span class='line'>if (filetype=="js"){ //if filename is a external JavaScript file 
+</span><span class='line'>var fileref=document.createElement('script') 
+</span><span class='line'>fileref.setAttribute("type","text/javascript") 
+</span><span class='line'>fileref.setAttribute("src", filename) 
+</span><span class='line'>} 
+</span><span class='line'>else if (filetype=="css"){ //if filename is an external CSS file 
+</span><span class='line'>var fileref=document.createElement("link") 
+</span><span class='line'>fileref.setAttribute("rel", "stylesheet") 
+</span><span class='line'>fileref.setAttribute("type", "text/css") 
+</span><span class='line'>fileref.setAttribute("href", filename) 
+</span><span class='line'>} 
+</span><span class='line'>return fileref 
+</span><span class='line'>} 
+</span><span class='line'>
+</span><span class='line'>function replacejscssfile(oldfilename, newfilename, filetype){ 
+</span><span class='line'>var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"; 
+</span><span class='line'>var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"; 
+</span><span class='line'>var allsuspects=document.getElementsByTagName(targetelement); 
+</span><span class='line'>for (var i=allsuspects.length; i&gt;=0; i--){ 
+</span><span class='line'>if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename)!=-1){ 
+</span><span class='line'>var newelement=createjscssfile(newfilename, filetype); 
+</span><span class='line'>allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i]); 
+</span><span class='line'>} 
+</span><span class='line'>} 
+</span><span class='line'>} 
+</span><span class='line'>//用 "newscript.js" 替换 "oldscript.js" 
+</span><span class='line'>replacejscssfile("oldscript.js", "newscript.js", "js")； 
+</span><span class='line'>//用 "newscript.css" 替换 "oldscript.css" 
+</span><span class='line'>replacejscssfile("oldstyle.css", "newscript.css","css"); </span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac翻墙技巧]]></title>
@@ -6396,359 +6618,6 @@ BLOB：BLOB数据不做任何转换，以输入形式存储。</p>
 <p><a href="http://download.csdn.net/detail/swplzj/6581137">点击这里下载ArchiverDemo</a></p>
 
 <p>这就是使用归档来达到数据的持久化。你也来试试吧。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[iOS 数据持久化(一)]]></title>
-    <link href="http://swplzj.github.io/blog/2014/08/09/ios-shu-ju-chi-jiu-hua-%5B%3F%5D/"/>
-    <updated>2014-08-09T21:46:33+08:00</updated>
-    <id>http://swplzj.github.io/blog/2014/08/09/ios-shu-ju-chi-jiu-hua-[?]</id>
-    <content type="html"><![CDATA[<p>iOS中有五种持久化数据的方式：属性列表、对象归档、NSUserDefault、SQLite3和Core Data
-本文章讲述通过属性列表的方式持久化数据，这个方法也是我们平时最经常用到的方式。比如应用程序的配置和个性化的设置，一般都是通过属性列表（properties list） plist文件来存储和读取的。</p>
-
-<!--more-->
-
-
-<p>[objc] view plaincopy在CODE上查看代码片派生到我的代码片</p>
-
-<pre><code>FOUNDATION_EXPORT NSArray *NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory directory, NSSearchPathDomainMask domainMask, BOOL expandTilde);  
-</code></pre>
-
-<p>这个函数的作用：创建一个目录搜索路径的列表。
-创建一个路径字符串列表指定域中指定的目录。列表中的顺序，你应该搜索目录。</p>
-
-<p>PS：
-通过此方法返回的目录可能不存在。这种方法只是给你请求目录的适当位置。根据应用的需求，它可能是开发者创建合适的目录或者在任何两者之间。</p>
-
-<p>下面是一个把数据以plist的形式保存到本地的自定义类</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//  
-</span><span class='line'>//  Plist.h  
-</span><span class='line'>//  PlistDemo  
-</span><span class='line'>//  
-</span><span class='line'>//  Created by swplzj on 13-11-20.  
-</span><span class='line'>//  Copyright (c) 2013年 swplzj. All rights reserved.  
-</span><span class='line'>//  
-</span><span class='line'>  
-</span><span class='line'>#import &lt;Foundation/Foundation.h&gt;  
-</span><span class='line'>  
-</span><span class='line'>@interface Plist : NSObject  
-</span><span class='line'>  
-</span><span class='line'>- (void)modifyData:(NSString *)dataKey Value:(NSString *)dataValue;  
-</span><span class='line'>- (void)deleteDataWithDataKey:(NSString *)key;  
-</span><span class='line'>  
-</span><span class='line'>@end  </span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//  
-</span><span class='line'>//  Plist.m  
-</span><span class='line'>//  PlistDemo  
-</span><span class='line'>//  
-</span><span class='line'>//  Created by swplzj on 13-11-20.  
-</span><span class='line'>//  Copyright (c) 2013年 swplzj. All rights reserved.  
-</span><span class='line'>//  
-</span><span class='line'>  
-</span><span class='line'>#import "Plist.h"  
-</span><span class='line'>  
-</span><span class='line'>@implementation Plist  
-</span><span class='line'>  
-</span><span class='line'>- (id)init  
-</span><span class='line'>{  
-</span><span class='line'>    if (self = [super init]) {  
-</span><span class='line'>        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);  
-</span><span class='line'>        //获取完整路径  
-</span><span class='line'>        NSString *documentsDirectory = [paths objectAtIndex:0];  
-</span><span class='line'>        NSLog(@"homeDirectory = %@", documentsDirectory);  
-</span><span class='line'>        NSString *plistPath = [documentsDirectory stringByAppendingPathComponent:@"student.plist"];  
-</span><span class='line'>        //判断是否已经创建文件  
-</span><span class='line'>        if ([[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {  
-</span><span class='line'>            NSLog(@"student.plist文件已经存在！");  
-</span><span class='line'>        }else {  
-</span><span class='line'>            //plist文件没有被创建  
-</span><span class='line'>            NSMutableDictionary *rootDic = [[NSMutableDictionary alloc] init];  
-</span><span class='line'>            NSMutableDictionary *subDic = [[NSMutableDictionary alloc] init];  
-</span><span class='line'>            [rootDic setObject:subDic forKey:@"student"];  
-</span><span class='line'>            [subDic release];  
-</span><span class='line'>            //写入到文件  
-</span><span class='line'>            [rootDic writeToFile:plistPath atomically:YES];  
-</span><span class='line'>            [rootDic release];  
-</span><span class='line'>        }  
-</span><span class='line'>    }  
-</span><span class='line'>      
-</span><span class='line'>    return self;  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>//把数据写入到plist文件中  
-</span><span class='line'>- (void)modifyData:(NSString *)dataKey Value:(NSString *)dataValue  
-</span><span class='line'>{  
-</span><span class='line'>    //获取路径  
-</span><span class='line'>    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"student.plist"];  
-</span><span class='line'>    NSMutableDictionary *rootDic = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] mutableCopy];  
-</span><span class='line'>    NSMutableDictionary *studentInfo = [rootDic objectForKey:@"student"];  
-</span><span class='line'>    NSString *name = [studentInfo objectForKey:dataKey];  
-</span><span class='line'>    name = dataValue;  
-</span><span class='line'>    [studentInfo setValue:name forKey:dataKey];  
-</span><span class='line'>    //写入到文件  
-</span><span class='line'>    [rootDic writeToFile:path atomically:YES];  
-</span><span class='line'>    NSLog(@"Key - Value: %@ - %@",dataKey, dataValue );  
-</span><span class='line'>    [rootDic release];  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>//根据key来删除某一行的数据  
-</span><span class='line'>- (void)deleteDataWithDataKey:(NSString *)key  
-</span><span class='line'>{  
-</span><span class='line'>    //获取路径  
-</span><span class='line'>    NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"student.plist"];  
-</span><span class='line'>    NSMutableDictionary *rootDic = [[[NSMutableDictionary alloc] initWithContentsOfFile:path] mutableCopy];  
-</span><span class='line'>    NSMutableDictionary *studentInfo = [rootDic objectForKey:@"student"];  
-</span><span class='line'>    [studentInfo removeObjectForKey:key];  
-</span><span class='line'>    NSLog(@"Delete data key - value: %@ - %@", key, [studentInfo objectForKey:key]);  
-</span><span class='line'>    [rootDic setValue:studentInfo forKey:@"student"];  
-</span><span class='line'>    //写入到文件  
-</span><span class='line'>    [rootDic writeToFile:path atomically:YES];  
-</span><span class='line'>    [rootDic release];  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>@end  </span></code></pre></td></tr></table></div></figure>
-
-
-<h5>在RootViewController里面的代码</h5>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//  
-</span><span class='line'>//  RootViewController.m  
-</span><span class='line'>//  PlistDemo  
-</span><span class='line'>//  
-</span><span class='line'>//  Created by swplzj on 13-11-20.  
-</span><span class='line'>//  Copyright (c) 2013年 swplzj. All rights reserved.  
-</span><span class='line'>//  
-</span><span class='line'>  
-</span><span class='line'>#import "RootViewController.h"  
-</span><span class='line'>#import "Plist.h"  
-</span><span class='line'>  
-</span><span class='line'>@interface RootViewController ()  
-</span><span class='line'>  
-</span><span class='line'>@property (retain, nonatomic) Plist *plistFile;  
-</span><span class='line'>  
-</span><span class='line'>@property (retain, nonatomic) IBOutlet UITextField *keyTF;  
-</span><span class='line'>@property (retain, nonatomic) IBOutlet UITextField *valueTF;  
-</span><span class='line'>@property (retain, nonatomic) IBOutlet UITextField *deleteKeyTF;  
-</span><span class='line'>@end  
-</span><span class='line'>  
-</span><span class='line'>@implementation RootViewController  
-</span><span class='line'>  
-</span><span class='line'>- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil  
-</span><span class='line'>{  
-</span><span class='line'>    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];  
-</span><span class='line'>    if (self) {  
-</span><span class='line'>        // Custom initialization  
-</span><span class='line'>    }  
-</span><span class='line'>    return self;  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>- (void)viewDidLoad  
-</span><span class='line'>{  
-</span><span class='line'>    [super viewDidLoad];  
-</span><span class='line'>    // Do any additional setup after loading the view from its nib.  
-</span><span class='line'>    _plistFile = [[Plist alloc] init];  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>- (void)didReceiveMemoryWarning  
-</span><span class='line'>{  
-</span><span class='line'>    [super didReceiveMemoryWarning];  
-</span><span class='line'>    // Dispose of any resources that can be recreated.  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>- (IBAction)addOrModifyBtnClicked:(id)sender {  
-</span><span class='line'>    if (![_keyTF.text isEqualToString:@""] && ![_valueTF.text isEqualToString:@""]) {  
-</span><span class='line'>        [_plistFile modifyData:_keyTF.text Value:_valueTF.text];   
-</span><span class='line'>    }  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>- (IBAction)deleteBtnClicked:(id)sender {  
-</span><span class='line'>    if (![_deleteKeyTF.text isEqualToString:@""]) {  
-</span><span class='line'>        [_plistFile deleteDataWithDataKey:_deleteKeyTF.text];  
-</span><span class='line'>    }  
-</span><span class='line'>}  
-</span><span class='line'>  
-</span><span class='line'>- (void)dealloc {  
-</span><span class='line'>    [_plistFile release];  
-</span><span class='line'>    [_keyTF release];  
-</span><span class='line'>    [_valueTF release];  
-</span><span class='line'>    [_deleteKeyTF release];  
-</span><span class='line'>    [super dealloc];  
-</span><span class='line'>}  
-</span><span class='line'>@end  </span></code></pre></td></tr></table></div></figure>
-
-
-<h5>效果</h5>
-
-<p><img src="http://img.blog.csdn.net/20131120140040890?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3dwbHpq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="id1" /></p>
-
-<h5>前往文件夹：</h5>
-
-<pre><code>/Users/issuser/Library/Application Support/iPhone Simulator/6.1/Applications/A40F6B2C-002A-4797-B501-3ABCBE59723A/Documents
-</code></pre>
-
-<p><img src="http://img.blog.csdn.net/20131120140111546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3dwbHpq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="id2" /></p>
-
-<h5>plist文件中的内容：</h5>
-
-<p><img src="http://img.blog.csdn.net/20131120140135937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3dwbHpq/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="id3" /></p>
-
-<p>好了，这就是通过属性列表plist文件来达到数据持久化的目的。</p>
 ]]></content>
   </entry>
   
